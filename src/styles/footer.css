@@ -1,5 +1,5 @@
 /* ============================================
-   Congresso SOBEI — Footer
+   Congresso SOBEI — Footer (Idêntico ao sobei.org.br)
    ============================================ */
 
 .footer {
@@ -11,29 +11,72 @@
 }
 
 .footer__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-xl);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
+  justify-content: space-between;
 }
 
-.footer__logo {
+.footer__about {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-md);
+  max-width: 350px;
+  width: 100%;
+}
+
+.footer__logo-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  align-self: flex-start;
 }
 
 .footer__description {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);
-  max-width: 600px;
-  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-width: 450px;
+}
+
+.footer__title {
+  color: var(--color-white);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer__link {
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-fast);
+}
+
+.footer__link:hover {
+  color: var(--color-white);
+  text-decoration: underline;
 }
 
 .footer__socials {
   display: flex;
   gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
 }
 
 .footer__social-link {
@@ -56,11 +99,47 @@
   transform: translateY(-2px);
 }
 
+.footer__info-item {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+  line-height: var(--line-height-normal);
+}
+
+.footer__info-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  margin-right: var(--spacing-xs);
+}
+
+.footer__info-value {
+  color: var(--color-gray-300);
+}
+
 .footer__bottom {
   border-top: 1px solid #1a1a1a;
   padding-top: var(--spacing-xl);
   text-align: center;
   font-size: var(--font-size-xs);
   color: var(--color-gray-500);
-  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .footer__about {
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .footer__nav {
+    max-width: 100%;
+  }
+
+  .footer__description {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }

@@ -1,6 +1,5 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Header from "@/components/Header";
+import { Inter, Playfair_Display, Dancing_Script } from "next/font/google";
 import Footer from "@/components/Footer";
 
 const inter = Inter({
@@ -10,17 +9,30 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-serif",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  variable: "--font-script",
+});
+
 export const metadata = {
-  title: "Congresso SOBEI — Em breve",
-  description: "O Congresso SOBEI está chegando. Em breve, mais informações sobre o evento da Sociedade Beneficente Equilíbrio de Interlagos.",
+  title: "XX Congresso de Educação Infantil SOBEI - 20 Anos",
+  description: "20 Anos de Congresso de Educação Infantil SOBEI — Cuidar, acolher e incluir: construindo vínculos na primeira infância. Celebrando histórias, inspirando futuros!",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
-      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Header />
-        <main style={{ flex: '1' }}>
+    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} ${dancingScript.variable}`}>
+      <body style={{ minHeight: '100vh', margin: 0, padding: 0, overflowX: 'hidden' }}>
+        <main style={{ width: '100%' }}>
           {children}
         </main>
         <Footer />

@@ -28,8 +28,16 @@
   --color-gray-900: #212121;
   --color-black: #000000;
 
+  /* ---- Cores da Arte Oficial ---- */
+  --color-congress-navy: #0A193F;
+  --color-congress-gold: #FFC400;
+  --color-congress-gold-dark: #D49B2A;
+  --color-congress-gold-light: #FFDC60;
+
   /* ---- Tipografia ---- */
   --font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: var(--font-serif), 'Playfair Display', Georgia, serif;
+  --font-script: var(--font-script), 'Dancing Script', 'Alex Brush', cursive;
   --font-size-xs: 0.75rem;    /* 12px */
   --font-size-sm: 0.875rem;   /* 14px */
   --font-size-base: 1rem;     /* 16px */
