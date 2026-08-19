@@ -25,7 +25,7 @@ const dancingScript = Dancing_Script({
 
 export const metadata = {
   title: "XX Congresso de Educação Infantil SOBEI - 20 Anos",
-  description: "20 Anos de Congresso de Educação Infantil SOBEI — Cuidar, acolher e incluir: construindo vínculos na primeira infância. Celebrando histórias, inspirando futuros!",
+  description: "20 Anos de Congresso de Educação Infantil SOBEI — Cuidar, acolher e incluir: construindo vínculos na primeiríssima infância. Celebrando histórias, inspirando futuros!",
 };
 
 export default function RootLayout({ children }) {

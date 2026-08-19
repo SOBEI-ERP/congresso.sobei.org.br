@@ -113,7 +113,7 @@ export default function Home() {
             {/* Subtitle / Theme */}
             <div className="congress-theme">
               <p className="congress-theme__script">Cuidar, acolher e incluir:</p>
-              <p className="congress-theme__desc">construindo vínculos na primeira infância.</p>
+              <p className="congress-theme__desc">construindo vínculos na primeiríssima infância.</p>
             </div>
           </div>
         </div>
@@ -129,17 +129,58 @@ export default function Home() {
       {/* 1. Header Transition Full-Width Banner */}
       <div className="schedule-banner-full">
         <div className="schedule-banner-inner">
-          <div className="schedule-banner-logo">
-            <img
-              src="/images/LOGO BRANCO.png"
-              alt="SOBEI - Sociedade Beneficente Equilíbrio de Interlagos"
-              className="schedule-sobei-logo"
+          <div className="schedule-badge-group">
+            <div className="schedule-badge-box">
+              <span className="schedule-badge-xx">XX</span>
+              <span className="schedule-badge-congresso">CONGRESSO</span>
+            </div>
+            <span className="schedule-badge-sub">DE EDUCAÇÃO INFANTIL SOBEI</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Flowing Organic Background Waves (Behind Cards - Left & Right) */}
+      <div className="schedule-bg-decor" aria-hidden="true">
+        {/* Left Wave Flow */}
+        <div className="schedule-bg-wave schedule-bg-wave--left">
+          <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
+            <path
+              d="M -20,0 C 220,180 80,480 260,750 C 360,920 160,1180 60,1400 L -20,1400 Z"
+              fill="#EDE5D3"
+              opacity="0.5"
             />
-          </div>
-          <div className="schedule-badge-box">
-            <span className="schedule-badge-xx">XX</span>
-            <span className="schedule-badge-congresso">CONGRESSO</span>
-          </div>
+            <path
+              d="M -20,0 C 140,160 30,420 180,680 C 260,840 90,1080 -20,1250 Z"
+              fill="#F3ECE0"
+              opacity="0.65"
+            />
+            <path
+              d="M -20,300 C 100,450 40,700 150,950 C 80,1150 -20,1300 -20,1400 Z"
+              fill="#FAF5EB"
+              opacity="0.7"
+            />
+          </svg>
+        </div>
+
+        {/* Right Wave Flow */}
+        <div className="schedule-bg-wave schedule-bg-wave--right">
+          <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
+            <path
+              d="M 520,0 C 300,220 440,520 250,820 C 150,980 340,1220 450,1400 L 520,1400 Z"
+              fill="#EDE5D3"
+              opacity="0.45"
+            />
+            <path
+              d="M 520,100 C 360,300 480,600 320,880 C 240,1040 420,1280 520,1350 Z"
+              fill="#F3ECE0"
+              opacity="0.6"
+            />
+            <path
+              d="M 520,400 C 380,580 450,850 350,1100 C 420,1260 520,1380 520,1400 Z"
+              fill="#FAF5EB"
+              opacity="0.75"
+            />
+          </svg>
         </div>
       </div>
 
@@ -280,6 +321,95 @@ export default function Home() {
                 <p className="speaker-theme">
                   <strong>Tema:</strong> Transtorno do Espectro Autista. Os desafios de uma educação inclusiva.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================
+            OFICINAS PEDAGÓGICAS (Segunda Página / Bloco)
+            ============================================ */}
+
+        {/* 6. Card de Destaque: OFICINAS PEDAGÓGICAS */}
+        <div className="workshops-banner-card" id="oficinas">
+          {/* Left: Date Box */}
+          <div className="reception-date-box">
+            <div className="reception-date-num">12</div>
+            <div className="reception-date-meta">
+              <svg viewBox="0 0 24 24" className="reception-date-icon" fill="currentColor">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+              </svg>
+              <div className="reception-date-labels">
+                <span>SÁB</span>
+                <span className="reception-date-sep">|</span>
+                <span>SET</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Middle: Title */}
+          <div className="workshops-banner-title">
+            <h2 className="workshops-title-text">OFICINAS PEDAGÓGICAS</h2>
+          </div>
+
+          {/* Right: Creativity/Workshop Icon */}
+          <div className="workshops-banner-icon-badge">
+            <div className="checkin-icon-circle">
+              <svg viewBox="0 0 24 24" className="checkin-icon" fill="currentColor">
+                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* 7. MANHÃ - 10H ÀS 13H */}
+        <div className="workshop-period-block">
+          <div className="lectures-header">
+            <h3 className="lectures-heading">MANHÃ - 10H ÀS 13H</h3>
+            <div className="lectures-heading-line" aria-hidden="true" />
+          </div>
+
+          <div className="day-card workshop-card workshop-card--morning">
+            <div className="workshop-content-container">
+              <div className="workshop-empty-state">
+                <div className="workshop-empty-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#D49B2A" strokeWidth="1.6" className="workshop-placeholder-svg">
+                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <p className="workshop-placeholder-text">Espaço reservado para as Oficinas Pedagógicas da Manhã.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 8. TARDE - 14H ÀS 17H */}
+        <div className="workshop-period-block">
+          <div className="lectures-header">
+            <h3 className="lectures-heading">TARDE - 14H ÀS 17H</h3>
+            <div className="lectures-heading-line" aria-hidden="true" />
+          </div>
+
+          <div className="day-card workshop-card workshop-card--afternoon">
+            {/* Background Honeycomb Pattern */}
+            <div className="honeycomb-decor honeycomb-decor--workshop" aria-hidden="true">
+              <svg viewBox="0 0 280 280" className="honeycomb-svg">
+                <polygon points="140,20 185,46 185,98 140,124 95,98 95,46" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
+                <polygon points="230,72 275,98 275,150 230,176 185,150 185,98" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
+                <polygon points="140,124 185,150 185,202 140,228 95,202 95,150" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
+                <polygon points="50,72 95,98 95,150 50,176 5,150 5,98" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
+                <polygon points="230,176 275,202 275,254 230,280 185,254 185,202" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
+              </svg>
+            </div>
+
+            <div className="workshop-content-container">
+              <div className="workshop-empty-state">
+                <div className="workshop-empty-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#D49B2A" strokeWidth="1.6" className="workshop-placeholder-svg">
+                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <p className="workshop-placeholder-text">Espaço reservado para as Oficinas Pedagógicas da Tarde.</p>
               </div>
             </div>
           </div>
