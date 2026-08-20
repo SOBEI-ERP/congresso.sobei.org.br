@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -186,52 +187,155 @@ export default function Home() {
 
       <div className="schedule-container">
 
-        {/* 2. Credenciamento & Recepção Card */}
+        {/* 2. INSCRIÇÕES (Banner Dourado de Inscrições) */}
+        <div className="workshops-banner-card" id="inscricoes">
+          {/* Left: Ticket Icon Box */}
+          <div className="reception-date-box" style={{ minWidth: 'auto', paddingRight: '1.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '3.5px solid rgba(255, 255, 255, 0.95)' }}>
+            <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z" />
+              <line x1="13" y1="5" x2="13" y2="19" strokeDasharray="3 3" strokeWidth="2" />
+            </svg>
+          </div>
+
+          {/* Middle: Title */}
+          <div className="workshops-banner-title">
+            <h2 className="workshops-title-text" style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.65rem)', letterSpacing: '0.04em' }}>INSCREVA-SE</h2>
+          </div>
+        </div>
+
+        {/* Card de Informações e Chamada para Inscrição */}
+        <div className="workshop-period-block" style={{ marginTop: '1.5rem' }}>
+          <div className="day-card" style={{ padding: 'clamp(2rem, 4vh, 2.8rem) clamp(1.5rem, 3.5vw, 2.8rem)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
+              <div>
+                <h3 style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', fontWeight: '900', color: '#0A193F', marginBottom: '0.6rem' }}>
+                  Sobre o Congresso
+                </h3>
+                <p style={{ color: '#4b5563', lineHeight: '1.7', fontSize: 'clamp(0.92rem, 1.2vw, 1rem)' }}>
+                  Celebrando 20 anos de compromisso com a infância, o <strong>Congresso de Educação Infantil SOBEI</strong> tem como tema central <em>"Cuidar, acolher e incluir: construindo vínculos na primeiríssima infância"</em>. Um encontro transformador que reúne educadores, gestores e especialistas para debater práticas inovadoras e fortalecer vínculos pedagógicos.
+                </p>
+              </div>
+
+              {/* Informações: Local, Dias e Horários em Texto Puro */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: '1.5rem',
+                marginTop: '0.2rem',
+              }}>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#C48B1E', fontWeight: '800', fontSize: '0.95rem', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    LOCAL DO EVENTO
+                  </div>
+                  <p style={{ color: '#1f2937', fontSize: '1rem', margin: 0, fontWeight: '700' }}>
+                    São Paulo - SP
+                  </p>
+                  <p style={{ color: '#6b7280', fontSize: '0.92rem', margin: '4px 0 0 0' }}>
+                    Espaço e Auditório de Eventos SOBEI
+                  </p>
+                </div>
+
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#C48B1E', fontWeight: '800', fontSize: '0.95rem', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                    DIAS &amp; HORÁRIOS
+                  </div>
+                  <p style={{ color: '#1f2937', fontSize: '0.95rem', margin: 0, fontWeight: '600' }}>
+                    <strong>11/Set (Sexta):</strong> 18h00 às 21h30
+                  </p>
+                  <p style={{ color: '#1f2937', fontSize: '0.95rem', margin: '4px 0 0 0', fontWeight: '600' }}>
+                    <strong>12/Set (Sábado):</strong> 08h00 às 17h00
+                  </p>
+                </div>
+              </div>
+
+              {/* Ações: Inscrição e Consulta */}
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: '0.8rem' }}>
+                <Link
+                  href="/inscricao"
+                  className="btn-inscricao-cta"
+                >
+                  Garantir Minha Vaga (Inscreva-se)
+                </Link>
+
+                <Link
+                  href="/consulta"
+                  className="btn-consulta-cta"
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  Consultar Inscrição
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Credenciamento, Recepção & Abertura (Sexta - 11 de Setembro) */}
         <div className="reception-card">
           {/* Left: Date Box */}
           <div className="reception-date-box">
-            <div className="reception-date-num">11</div>
-            <div className="reception-date-meta">
-              <svg viewBox="0 0 24 24" className="reception-date-icon" fill="currentColor">
-                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
-              </svg>
-              <div className="reception-date-labels">
-                <span>SEX</span>
-                <span className="reception-date-sep">|</span>
-                <span>SET</span>
+            <div className="reception-date-top">
+              <div className="reception-date-num">11</div>
+              <div className="reception-date-weekday">
+                <span>S</span>
+                <span>E</span>
+                <span>X</span>
+                <span>T</span>
+                <span>A</span>
               </div>
             </div>
+            <div className="reception-date-divider" />
+            <div className="reception-date-month">SETEMBRO</div>
           </div>
 
           {/* Middle: Content */}
           <div className="reception-info">
-            <h2 className="reception-title">CREDENCIAMENTO &amp; RECEPÇÃO</h2>
-            <p className="reception-time">
-              <strong>Horário:</strong> 18h00 às 19h00
-            </p>
-            <p className="reception-instructions">
-              <strong>Instruções:</strong> Apresente o seu QR Code ou documento com foto para a leitura, validação e retirada do seu kit do congresso.
-            </p>
+            <div className="reception-block">
+              <h2 className="reception-title">CREDENCIAMENTO &amp; RECEPÇÃO</h2>
+              <p className="reception-time">
+                <strong>Horário:</strong> 18h00 às 19h00
+              </p>
+              <p className="reception-instructions">
+                <strong>Instruções:</strong> Informe o seu nome para a validação da inscrição e retirada do seu kit do congresso.
+              </p>
+            </div>
+
+            <div className="reception-block">
+              <h2 className="reception-title">ABERTURA DO CONGRESSO</h2>
+              <p className="reception-time">
+                <strong>Horário:</strong> 19h00 às 20h00
+              </p>
+            </div>
           </div>
 
           {/* Right: Check-in Badge */}
           <div className="reception-checkin-badge">
-            <div className="checkin-icon-circle">
-              <svg viewBox="0 0 24 24" className="checkin-icon" fill="currentColor">
-                <path d="M4 4h6v6H4V4zm2 2v2h2V6H6zm8-2h6v6h-6V4zm2 2v2h2V6h-2zM4 14h6v6H4v-6zm2 2v2h2v-2H6zm10-2h2v2h-2v-2zm-2 2h2v2h-2v-2zm2 2h2v2h-2v-2zm-2 2h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2z" />
-              </svg>
-            </div>
+            <svg viewBox="0 0 40 40" className="checkin-icon" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 13L16 9L24 13L34 9V31L24 35L16 31L6 35V13Z" stroke="#FFFFFF" strokeWidth="2.2" />
+              <line x1="16" y1="9" x2="16" y2="31" stroke="#FFFFFF" strokeWidth="2.2" />
+              <line x1="24" y1="13" x2="24" y2="35" stroke="#FFFFFF" strokeWidth="2.2" />
+              <circle cx="20" cy="18" r="6" fill="#B68425" stroke="#FFFFFF" strokeWidth="2.2" />
+              <polyline points="18 18 19.5 19.5 22.5 16.5" stroke="#FFFFFF" strokeWidth="2.2" />
+            </svg>
             <span className="checkin-label">Check-in</span>
           </div>
         </div>
 
-        {/* 3. Section Title: PALESTRAS */}
+        {/* 4. Section Title: PALESTRAS */}
         <div className="lectures-header">
           <h2 className="lectures-heading">PALESTRAS</h2>
           <div className="lectures-heading-line" aria-hidden="true" />
         </div>
 
-        {/* 4. DAY 1: Sexta-Feira | 11 de Set */}
+        {/* 5. DAY 1: Sexta-Feira | 11 de Set */}
         <div className="day-card day-card--friday">
           <div className="day-badge">
             <span>SEXTA-FEIRA | 11 DE SET</span>
@@ -255,10 +359,62 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 5. DAY 2: Sábado | 12 de Set */}
+        {/* 6. DAY 2: Credenciamento, Recepção & Almoço (Sábado - 12 de Setembro) */}
+        <div className="reception-card">
+          {/* Left: Date Box */}
+          <div className="reception-date-box">
+            <div className="reception-date-top">
+              <div className="reception-date-num">12</div>
+              <div className="reception-date-weekday">
+                <span>S</span>
+                <span>Á</span>
+                <span>B</span>
+                <span>A</span>
+                <span>D</span>
+                <span>O</span>
+              </div>
+            </div>
+            <div className="reception-date-divider" />
+            <div className="reception-date-month">SETEMBRO</div>
+          </div>
+
+          {/* Middle: Content */}
+          <div className="reception-info">
+            <div className="reception-block">
+              <h2 className="reception-title">CREDENCIAMENTO &amp; RECEPÇÃO</h2>
+              <p className="reception-time">
+                <strong>Horário:</strong> 7h00 às 8h00
+              </p>
+              <p className="reception-instructions">
+                <strong>Instruções:</strong> Informe o seu nome para a validação da inscrição.
+              </p>
+            </div>
+
+            <div className="reception-block">
+              <h2 className="reception-title">ALMOÇO</h2>
+              <p className="reception-time">
+                <strong>Horário:</strong> 12h00 às 14h00
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Check-in Badge */}
+          <div className="reception-checkin-badge">
+            <svg viewBox="0 0 40 40" className="checkin-icon" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 13L16 9L24 13L34 9V31L24 35L16 31L6 35V13Z" stroke="#FFFFFF" strokeWidth="2.2" />
+              <line x1="16" y1="9" x2="16" y2="31" stroke="#FFFFFF" strokeWidth="2.2" />
+              <line x1="24" y1="13" x2="24" y2="35" stroke="#FFFFFF" strokeWidth="2.2" />
+              <circle cx="20" cy="18" r="6" fill="#B68425" stroke="#FFFFFF" strokeWidth="2.2" />
+              <polyline points="18 18 19.5 19.5 22.5 16.5" stroke="#FFFFFF" strokeWidth="2.2" />
+            </svg>
+            <span className="checkin-label">Check-in</span>
+          </div>
+        </div>
+
+        {/* 7. DAY 2: Sábado | 12 de Set (Palestras) */}
         <div className="day-card day-card--saturday">
           <div className="day-badge">
-            <span>SÁBADO | 12 DE SET</span>
+            <span>PALESTRAS | SÁBADO (12 DE SET)</span>
           </div>
 
           {/* Decorative Honeycomb Pattern Background */}
@@ -327,42 +483,27 @@ export default function Home() {
         </div>
 
         {/* ============================================
-            OFICINAS PEDAGÓGICAS (Segunda Página / Bloco)
+            OFICINAS PEDAGÓGICAS
             ============================================ */}
 
-        {/* 6. Card de Destaque: OFICINAS PEDAGÓGICAS */}
+        {/* 7. Card de Destaque: OFICINAS PEDAGÓGICAS */}
         <div className="workshops-banner-card" id="oficinas">
-          {/* Left: Date Box */}
-          <div className="reception-date-box">
-            <div className="reception-date-num">12</div>
-            <div className="reception-date-meta">
-              <svg viewBox="0 0 24 24" className="reception-date-icon" fill="currentColor">
-                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
-              </svg>
-              <div className="reception-date-labels">
-                <span>SÁB</span>
-                <span className="reception-date-sep">|</span>
-                <span>SET</span>
-              </div>
-            </div>
+          {/* Left: Alert Circle Icon Box */}
+          <div className="reception-date-box" style={{ minWidth: 'auto', paddingRight: '1.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '3.5px solid rgba(255, 255, 255, 0.95)' }}>
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
           </div>
 
           {/* Middle: Title */}
           <div className="workshops-banner-title">
-            <h2 className="workshops-title-text">OFICINAS PEDAGÓGICAS</h2>
-          </div>
-
-          {/* Right: Creativity/Workshop Icon */}
-          <div className="workshops-banner-icon-badge">
-            <div className="checkin-icon-circle">
-              <svg viewBox="0 0 24 24" className="checkin-icon" fill="currentColor">
-                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
-              </svg>
-            </div>
+            <h2 className="workshops-title-text" style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.65rem)', letterSpacing: '0.04em' }}>OFICINAS PEDAGÓGICAS</h2>
           </div>
         </div>
 
-        {/* 7. MANHÃ - 10H ÀS 13H */}
+        {/* 8. MANHÃ - 10H ÀS 13H */}
         <div className="workshop-period-block">
           <div className="lectures-header">
             <h3 className="lectures-heading">MANHÃ - 10H ÀS 13H</h3>
@@ -383,7 +524,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 8. TARDE - 14H ÀS 17H */}
+        {/* 9. TARDE - 14H ÀS 17H */}
         <div className="workshop-period-block">
           <div className="lectures-header">
             <h3 className="lectures-heading">TARDE - 14H ÀS 17H</h3>

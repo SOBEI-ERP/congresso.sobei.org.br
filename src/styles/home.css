@@ -458,19 +458,7 @@
   border: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
-}
-
-/* Borda amarela superior perfeitamente conectada no ponto exato da curva amarela inferior-direita */
-.schedule-banner-full::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - clamp(220px, 25.5vw, 430px));
-  height: 3.5px;
-  background-color: var(--color-congress-gold);
-  border-radius: 0 0px 9999px 0;
-  z-index: 2;
+  z-index: 10;
 }
 
 .schedule-banner-inner {
@@ -592,119 +580,189 @@
   z-index: 2;
 }
 
-/* ---- 8.3 Card de Credenciamento & Recepção ---- */
-.reception-card {
-  background: linear-gradient(95deg, #C48B1E 0%, #B87F14 100%);
-  color: var(--color-white);
+/* ---- 8.3 Card de Credenciamento & Recepção e Inscrições ---- */
+.reception-card,
+.workshops-banner-card {
+  position: relative;
+  background: #B68425;
+  background: linear-gradient(100deg, #BA8728 0%, #B07F20 100%);
+  color: #FFFFFF;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   border-radius: 12px;
   padding: 1.2rem 1.8rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: clamp(1.2rem, 2.5vw, 2.2rem);
-  box-shadow: 0 6px 20px rgba(196, 139, 30, 0.25);
+  gap: clamp(1.2rem, 2.2vw, 2rem);
+  box-shadow: 0 6px 20px rgba(182, 132, 37, 0.2);
+  overflow: hidden;
 }
 
+.reception-card::before,
+.workshops-banner-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* Date Box Geral */
 .reception-date-box {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  border-right: 1.5px solid rgba(255, 255, 255, 0.3);
-  padding-right: 1.2rem;
+  justify-content: center;
+  border-right: 3.5px solid rgba(255, 255, 255, 0.95);
+  padding-right: 1.5rem;
+  min-width: 135px;
+  z-index: 1;
+}
+
+.reception-date-box--vertical {
+  align-items: center;
+  justify-content: center;
+  min-width: 135px;
+}
+
+.reception-date-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
 }
 
 .reception-date-num {
-  font-family: var(--font-family);
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: var(--font-anton), 'Anton', sans-serif;
+  font-size: clamp(4.4rem, 6.6vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
 }
 
-.reception-date-meta {
+.reception-date-num--vertical {
+  font-size: clamp(3.4rem, 5vw, 4.4rem);
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.reception-date-weekday {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
-}
-
-.reception-date-icon {
-  width: 24px;
-  height: 24px;
-  opacity: 0.95;
-}
-
-.reception-date-labels {
-  font-family: var(--font-family);
-  font-size: 0.76rem;
+  justify-content: center;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 0.88rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+  line-height: 1.12;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.reception-date-sep {
-  opacity: 0.6;
+.reception-date-divider {
+  height: 3.5px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 7px 0 6px 0;
+  width: 100%;
+  border-radius: 2px;
 }
 
+.reception-date-month {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* Conteúdo Central */
 .reception-info {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.65rem;
+  z-index: 1;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+}
+
+.reception-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .reception-title {
-  font-family: var(--font-family);
-  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.32rem);
   font-weight: 900;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--color-white);
+  color: #FFFFFF;
+  margin: 0 0 0.15rem 0;
 }
 
-.reception-time {
-  font-size: clamp(0.85rem, 1.1vw, 0.96rem);
-  color: rgba(255, 255, 255, 0.95);
-}
-
+.reception-time,
 .reception-instructions {
-  font-size: clamp(0.8rem, 1vw, 0.9rem);
-  line-height: 1.35;
-  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: clamp(0.9rem, 1.15vw, 1rem);
+  line-height: 1.45;
+  color: #FFFFFF;
+  margin: 0;
 }
 
+.reception-time strong,
+.reception-instructions strong {
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+/* Badge de Check-in */
 .reception-checkin-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
-}
-
-.checkin-icon-circle {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 0.35rem;
+  z-index: 1;
+  padding-left: 0.4rem;
+  align-self: flex-start;
+  margin-top: 0.15rem;
 }
 
 .checkin-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--color-white);
+  width: 38px;
+  height: 38px;
+  color: #FFFFFF;
 }
 
 .checkin-label {
-  font-family: var(--font-family);
-  font-size: 0.72rem;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 0.8rem;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-white);
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+/* Botão de Plus do Card de Inscrições */
+.banner-plus-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
 }
 
 /* ---- 8.3 Título da Seção: PALESTRAS ---- */
@@ -891,10 +949,11 @@
 .workshops-banner-card {
   background: linear-gradient(95deg, #C48B1E 0%, #B87F14 100%);
   color: var(--color-white);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   border-radius: 12px;
   padding: 1.2rem 1.8rem;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: clamp(1.2rem, 2.5vw, 2.2rem);
   box-shadow: 0 6px 20px rgba(196, 139, 30, 0.25);
@@ -907,7 +966,7 @@
 }
 
 .workshops-title-text {
-  font-family: var(--font-family);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 900;
   letter-spacing: 0.05em;
@@ -1011,6 +1070,11 @@
     padding-bottom: 0.8rem;
   }
 
+  .reception-checkin-badge {
+    align-self: center;
+    margin-top: 0;
+  }
+
   .schedule-banner-inner {
     flex-direction: column;
     text-align: center;
@@ -1046,4 +1110,60 @@
   .speaker-details {
     align-items: center;
   }
+}
+
+/* ============================================
+   Botões do Card de Inscrições & Consulta
+   ============================================ */
+
+.btn-inscricao-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 38px;
+  background-color: #D49B2A;
+  color: #FFFFFF;
+  font-size: 1.02rem;
+  font-weight: 900;
+  border-radius: 35px;
+  box-shadow: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+}
+
+.btn-inscricao-cta:hover {
+  background-color: #B87F14;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.btn-consulta-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background-color: #0A193F;
+  color: #FFFFFF;
+  border: 2px solid #0A193F;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 35px;
+  box-shadow: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+}
+
+.btn-consulta-cta:hover {
+  background-color: #16285A;
+  color: #FFFFFF;
+  border-color: #16285A;
+  transform: translateY(-2px);
+  box-shadow: none;
 }
