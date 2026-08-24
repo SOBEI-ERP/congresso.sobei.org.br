@@ -233,27 +233,6 @@ export default function ConsultaPage() {
                 >
                   Voltar para a Programação
                 </Link>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    setResultado(null);
-                    setCpf('');
-                    setEmail('');
-                  }}
-                  style={{
-                    padding: '16px 28px',
-                    backgroundColor: '#F3F4F6',
-                    color: '#374151',
-                    borderRadius: '35px',
-                    border: '1px solid #D1D5DB',
-                    fontSize: '0.95rem',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                  }}
-                >
-                  Nova Consulta
-                </button>
               </div>
             </div>
           ) : (

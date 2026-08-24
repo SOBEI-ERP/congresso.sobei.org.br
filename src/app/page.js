@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { PALESTRAS_SEXTA, PALESTRAS_SABADO } from '@/lib/congressoData';
+import WorkshopsCatalog from '@/components/WorkshopsCatalog';
 
 export default function Home() {
   return (
@@ -123,7 +125,7 @@ export default function Home() {
     </section>
 
     {/* ============================================
-        SECTION: Programação & Palestras
+        SECTION: Programação, Palestras & Oficinas
         ============================================ */}
     <section className="schedule-section" id="programacao" aria-label="Programação do Congresso">
       
@@ -142,22 +144,22 @@ export default function Home() {
 
       {/* Flowing Organic Background Waves (Behind Cards - Left & Right) */}
       <div className="schedule-bg-decor" aria-hidden="true">
-        {/* Left Wave Flow */}
+        {/* Left Wave Flow (Simétrico ao Lado Direito) */}
         <div className="schedule-bg-wave schedule-bg-wave--left">
           <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
             <path
-              d="M -20,0 C 220,180 80,480 260,750 C 360,920 160,1180 60,1400 L -20,1400 Z"
-              fill="#EDE5D3"
-              opacity="0.5"
+              d="M -20,0 C 200,220 60,520 250,820 C 350,980 160,1220 50,1400 L -20,1400 Z"
+              fill="#DECBB0"
+              opacity="0.4"
             />
             <path
-              d="M -20,0 C 140,160 30,420 180,680 C 260,840 90,1080 -20,1250 Z"
-              fill="#F3ECE0"
-              opacity="0.65"
+              d="M -20,100 C 140,300 20,600 180,880 C 260,1040 80,1280 -20,1350 Z"
+              fill="#EBDDC8"
+              opacity="0.55"
             />
             <path
-              d="M -20,300 C 100,450 40,700 150,950 C 80,1150 -20,1300 -20,1400 Z"
-              fill="#FAF5EB"
+              d="M -20,400 C 120,580 50,850 150,1100 C 80,1260 -20,1380 -20,1400 Z"
+              fill="#F5EDE1"
               opacity="0.7"
             />
           </svg>
@@ -168,18 +170,18 @@ export default function Home() {
           <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
             <path
               d="M 520,0 C 300,220 440,520 250,820 C 150,980 340,1220 450,1400 L 520,1400 Z"
-              fill="#EDE5D3"
-              opacity="0.45"
+              fill="#DECBB0"
+              opacity="0.4"
             />
             <path
               d="M 520,100 C 360,300 480,600 320,880 C 240,1040 420,1280 520,1350 Z"
-              fill="#F3ECE0"
-              opacity="0.6"
+              fill="#EBDDC8"
+              opacity="0.55"
             />
             <path
               d="M 520,400 C 380,580 450,850 350,1100 C 420,1260 520,1380 520,1400 Z"
-              fill="#FAF5EB"
-              opacity="0.75"
+              fill="#F5EDE1"
+              opacity="0.7"
             />
           </svg>
         </div>
@@ -309,9 +311,12 @@ export default function Home() {
             </div>
 
             <div className="reception-block">
-              <h2 className="reception-title">ABERTURA DO CONGRESSO</h2>
+              <h2 className="reception-title">ABERTURA SOLENE DO CONGRESSO</h2>
               <p className="reception-time">
-                <strong>Horário:</strong> 19h00 às 20h00
+                <strong>Horário:</strong> 19h00 às 19h30
+              </p>
+              <p className="reception-instructions">
+                Apresentação cultural, boas-vindas institucionais e início oficial das atividades.
               </p>
             </div>
           </div>
@@ -329,37 +334,55 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 4. Section Title: PALESTRAS */}
+        {/* 4. Section Title: PALESTRAS (Sexta-Feira) */}
         <div className="lectures-header">
           <h2 className="lectures-heading">PALESTRAS</h2>
           <div className="lectures-heading-line" aria-hidden="true" />
         </div>
 
-        {/* 5. DAY 1: Sexta-Feira | 11 de Set */}
+        {/* 5. DAY 1: Sexta-Feira | 11 de Set (Palestra Principal) */}
         <div className="day-card day-card--friday">
           <div className="day-badge">
             <span>SEXTA-FEIRA | 11 DE SET</span>
           </div>
 
+          {/* Decorative Pure Geometric Honeycomb Pattern Background */}
+          <div className="honeycomb-decor" aria-hidden="true">
+            <svg viewBox="0 0 340 340" className="honeycomb-svg">
+              <polygon points="140,20 185,46 185,98 140,124 95,98 95,46" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="230,72 275,98 275,150 230,176 185,150 185,98" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="140,124 185,150 185,202 140,228 95,202 95,150" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="50,72 95,98 95,150 50,176 5,150 5,98" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="230,176 275,202 275,254 230,280 185,254 185,202" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="320,124 365,150 365,202 320,228 275,202 275,150" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="320,228 365,254 365,306 320,332 275,306 275,254" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="140,228 185,254 185,306 140,332 95,306 95,254" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+            </svg>
+          </div>
+
           <div className="speakers-list">
-            <div className="speaker-item">
-              <div className="speaker-avatar-frame speaker-avatar-frame--shape1">
-                <div className="speaker-avatar-placeholder">
-                  <svg viewBox="0 0 24 24" className="speaker-avatar-icon" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
+            {PALESTRAS_SEXTA.map((palestra) => (
+              <div key={palestra.id} className="speaker-item">
+                <div className={`speaker-avatar-frame ${palestra.shapeClass}`}>
+                  <img
+                    src={palestra.foto}
+                    alt={palestra.fotoAlt}
+                    className="speaker-avatar-img"
+                  />
+                </div>
+                <div className="speaker-details">
+                  <span className="speaker-time">{palestra.horario}</span>
+                  <h3 className="speaker-name">{palestra.nome}</h3>
+                  <p className="speaker-theme">
+                    <strong>Tema:</strong> {palestra.tema}
+                  </p>
                 </div>
               </div>
-              <div className="speaker-details">
-                <span className="speaker-time">20h00</span>
-                <h3 className="speaker-name">Nome do Palestrante</h3>
-                <p className="speaker-theme"><strong>Tema:</strong> XXX</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* 6. DAY 2: Credenciamento, Recepção & Almoço (Sábado - 12 de Setembro) */}
+        {/* 6. Credenciamento, Recepção & Almoço (Sábado - 12 de Setembro) */}
         <div className="reception-card">
           {/* Left: Date Box */}
           <div className="reception-date-box">
@@ -383,10 +406,10 @@ export default function Home() {
             <div className="reception-block">
               <h2 className="reception-title">CREDENCIAMENTO &amp; RECEPÇÃO</h2>
               <p className="reception-time">
-                <strong>Horário:</strong> 7h00 às 8h00
+                <strong>Horário:</strong> 07h00 às 08h00
               </p>
               <p className="reception-instructions">
-                <strong>Instruções:</strong> Informe o seu nome para a validação da inscrição.
+                <strong>Instruções:</strong> Validação da inscrição e acolhimento dos participantes.
               </p>
             </div>
 
@@ -411,153 +434,66 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 7. DAY 2: Sábado | 12 de Set (Palestras) */}
+        {/* 7. Section Title: PALESTRAS (Sábado) */}
+        <div className="lectures-header">
+          <h2 className="lectures-heading">PALESTRAS</h2>
+          <div className="lectures-heading-line" aria-hidden="true" />
+        </div>
+
+        {/* 8. DAY 2: Sábado | 12 de Set (Palestras do Sábado) */}
         <div className="day-card day-card--saturday">
           <div className="day-badge">
-            <span>PALESTRAS | SÁBADO (12 DE SET)</span>
+            <span>SÁBADO | 12 DE SET</span>
           </div>
 
-          {/* Decorative Honeycomb Pattern Background */}
+          {/* Decorative Pure Geometric Honeycomb Pattern Background */}
           <div className="honeycomb-decor" aria-hidden="true">
-            <svg viewBox="0 0 280 280" className="honeycomb-svg">
-              <polygon points="140,20 185,46 185,98 140,124 95,98 95,46" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-              <polygon points="230,72 275,98 275,150 230,176 185,150 185,98" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-              <polygon points="140,124 185,150 185,202 140,228 95,202 95,150" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-              <polygon points="50,72 95,98 95,150 50,176 5,150 5,98" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-              <polygon points="230,176 275,202 275,254 230,280 185,254 185,202" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
+            <svg viewBox="0 0 340 340" className="honeycomb-svg">
+              <polygon points="140,20 185,46 185,98 140,124 95,98 95,46" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="230,72 275,98 275,150 230,176 185,150 185,98" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="140,124 185,150 185,202 140,228 95,202 95,150" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="50,72 95,98 95,150 50,176 5,150 5,98" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="230,176 275,202 275,254 230,280 185,254 185,202" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="320,124 365,150 365,202 320,228 275,202 275,150" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="320,228 365,254 365,306 320,332 275,306 275,254" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
+              <polygon points="140,228 185,254 185,306 140,332 95,306 95,254" fill="none" stroke="#C48B1E" strokeWidth="1.2" opacity="0.32" />
             </svg>
-            
-            {/* Soft decorative golden line art */}
-            <div className="honeycomb-icons">
-              <div className="honeycomb-icon-box honeycomb-icon-box--puzzle">
-                <svg viewBox="0 0 24 24" className="honeycomb-icon-svg" fill="none" stroke="#D49B2A" strokeWidth="1.6">
-                  <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5s-1.12-2.5-2.5-2.5z" />
-                </svg>
-              </div>
-              <div className="honeycomb-icon-box honeycomb-icon-box--handshake">
-                <svg viewBox="0 0 24 24" className="honeycomb-icon-svg" fill="none" stroke="#D49B2A" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-                  <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
-                  <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
-                  <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
-                </svg>
-              </div>
-            </div>
           </div>
 
           <div className="speakers-list">
-            {/* Speaker 1: Bárbara Alencar */}
-            <div className="speaker-item">
-              <div className="speaker-avatar-frame speaker-avatar-frame--shape2">
-                <div className="speaker-avatar-placeholder">
-                  <svg viewBox="0 0 24 24" className="speaker-avatar-icon" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
+            {PALESTRAS_SABADO.map((palestra) => (
+              <div key={palestra.id} className="speaker-item">
+                <div className={`speaker-avatar-frame ${palestra.shapeClass}`}>
+                  <img
+                    src={palestra.foto}
+                    alt={palestra.fotoAlt}
+                    className="speaker-avatar-img"
+                  />
+                </div>
+                <div className="speaker-details">
+                  <span className="speaker-time">{palestra.horario}</span>
+                  <h3 className="speaker-name">{palestra.nome}</h3>
+                  <p className="speaker-theme">
+                    <strong>Tema:</strong> {palestra.tema}
+                  </p>
                 </div>
               </div>
-              <div className="speaker-details">
-                <span className="speaker-time">08h30</span>
-                <h3 className="speaker-name">Bárbara Alencar</h3>
-                <p className="speaker-theme"><strong>Tema:</strong> XXX</p>
-              </div>
-            </div>
-
-            {/* Speaker 2: Fabíola Dobrillovich */}
-            <div className="speaker-item">
-              <div className="speaker-avatar-frame speaker-avatar-frame--shape3">
-                <div className="speaker-avatar-placeholder">
-                  <svg viewBox="0 0 24 24" className="speaker-avatar-icon" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-              </div>
-              <div className="speaker-details">
-                <span className="speaker-time">10h00</span>
-                <h3 className="speaker-name">Fabíola Dobrillovich</h3>
-                <p className="speaker-theme">
-                  <strong>Tema:</strong> Transtorno do Espectro Autista. Os desafios de uma educação inclusiva.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* ============================================
-            OFICINAS PEDAGÓGICAS
-            ============================================ */}
-
-        {/* 7. Card de Destaque: OFICINAS PEDAGÓGICAS */}
-        <div className="workshops-banner-card" id="oficinas">
-          {/* Left: Alert Circle Icon Box */}
-          <div className="reception-date-box" style={{ minWidth: 'auto', paddingRight: '1.4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '3.5px solid rgba(255, 255, 255, 0.95)' }}>
-            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="16" x2="12.01" y2="16" />
-            </svg>
-          </div>
-
-          {/* Middle: Title */}
-          <div className="workshops-banner-title">
-            <h2 className="workshops-title-text" style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.65rem)', letterSpacing: '0.04em' }}>OFICINAS PEDAGÓGICAS</h2>
-          </div>
+        {/* 9. Section Title: OFICINAS PEDAGÓGICAS */}
+        <div className="lectures-header" id="oficinas">
+          <h2 className="lectures-heading">OFICINAS PEDAGÓGICAS</h2>
+          <div className="lectures-heading-line" aria-hidden="true" />
         </div>
 
-        {/* 8. MANHÃ - 10H ÀS 13H */}
-        <div className="workshop-period-block">
-          <div className="lectures-header">
-            <h3 className="lectures-heading">MANHÃ - 10H ÀS 13H</h3>
-            <div className="lectures-heading-line" aria-hidden="true" />
-          </div>
-
-          <div className="day-card workshop-card workshop-card--morning">
-            <div className="workshop-content-container">
-              <div className="workshop-empty-state">
-                <div className="workshop-empty-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#D49B2A" strokeWidth="1.6" className="workshop-placeholder-svg">
-                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <p className="workshop-placeholder-text">Espaço reservado para as Oficinas Pedagógicas da Manhã.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 9. TARDE - 14H ÀS 17H */}
-        <div className="workshop-period-block">
-          <div className="lectures-header">
-            <h3 className="lectures-heading">TARDE - 14H ÀS 17H</h3>
-            <div className="lectures-heading-line" aria-hidden="true" />
-          </div>
-
-          <div className="day-card workshop-card workshop-card--afternoon">
-            {/* Background Honeycomb Pattern */}
-            <div className="honeycomb-decor honeycomb-decor--workshop" aria-hidden="true">
-              <svg viewBox="0 0 280 280" className="honeycomb-svg">
-                <polygon points="140,20 185,46 185,98 140,124 95,98 95,46" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-                <polygon points="230,72 275,98 275,150 230,176 185,150 185,98" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-                <polygon points="140,124 185,150 185,202 140,228 95,202 95,150" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-                <polygon points="50,72 95,98 95,150 50,176 5,150 5,98" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-                <polygon points="230,176 275,202 275,254 230,280 185,254 185,202" fill="none" stroke="#D49B2A" strokeWidth="1.2" opacity="0.3" />
-              </svg>
-            </div>
-
-            <div className="workshop-content-container">
-              <div className="workshop-empty-state">
-                <div className="workshop-empty-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#D49B2A" strokeWidth="1.6" className="workshop-placeholder-svg">
-                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <p className="workshop-placeholder-text">Espaço reservado para as Oficinas Pedagógicas da Tarde.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* 10. Catálogo Completo das Oficinas Pedagógicas (Sábado 12 de Set) */}
+        <WorkshopsCatalog />
 
         </div>
       </section>
     </>
   );
 }
+

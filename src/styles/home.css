@@ -456,7 +456,7 @@
   background-color: var(--color-congress-navy);
   padding: clamp(1.3rem, 3.2vh, 2.2rem) clamp(1.5rem, 5vw, 4rem);
   border: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: none;
   box-sizing: border-box;
   z-index: 10;
 }
@@ -584,18 +584,21 @@
 .reception-card,
 .workshops-banner-card {
   position: relative;
-  background: #B68425;
+  width: calc(100% + clamp(40px, 8vw, 120px));
+  margin-left: calc(-1 * clamp(20px, 4vw, 60px));
+  background: #BA8728;
   background: linear-gradient(100deg, #BA8728 0%, #B07F20 100%);
   color: #FFFFFF;
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  border-radius: 12px;
-  padding: 1.2rem 1.8rem;
+  border-radius: 0;
+  padding: 0.85rem clamp(1.6rem, 2.8vw, 2.5rem);
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: clamp(1.2rem, 2.2vw, 2rem);
-  box-shadow: 0 6px 20px rgba(182, 132, 37, 0.2);
+  gap: clamp(0.85rem, 1.8vw, 1.5rem);
+  box-shadow: 0 6px 20px rgba(186, 135, 40, 0.2);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .reception-card::before,
@@ -618,29 +621,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-right: 3.5px solid rgba(255, 255, 255, 0.95);
-  padding-right: 1.5rem;
-  min-width: 135px;
+  border-right: 3px solid rgba(255, 255, 255, 0.95);
+  padding-right: 0.75rem;
+  width: fit-content;
+  min-width: auto;
   z-index: 1;
 }
 
 .reception-date-box--vertical {
   align-items: center;
   justify-content: center;
-  min-width: 135px;
+  width: fit-content;
+  min-width: auto;
 }
 
 .reception-date-top {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.35rem;
   width: 100%;
 }
 
 .reception-date-num {
   font-family: var(--font-anton), 'Anton', sans-serif;
-  font-size: clamp(4.4rem, 6.6vw, 5.8rem);
+  font-size: clamp(4.4rem, 6.2vw, 5.4rem);
   font-weight: 400;
   line-height: 0.82;
   letter-spacing: 0.01em;
@@ -648,7 +653,7 @@
 }
 
 .reception-date-num--vertical {
-  font-size: clamp(3.4rem, 5vw, 4.4rem);
+  font-size: clamp(3.2rem, 4.8vw, 4.2rem);
   line-height: 1;
   text-align: center;
   margin-bottom: 2px;
@@ -660,37 +665,37 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 900;
-  line-height: 1.12;
+  line-height: 1.1;
   color: #FFFFFF;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .reception-date-divider {
-  height: 3.5px;
+  height: 3px;
   background-color: rgba(255, 255, 255, 0.95);
-  margin: 7px 0 6px 0;
+  margin: 5px 0 4px 0;
   width: 100%;
   border-radius: 2px;
 }
 
 .reception-date-month {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
   text-align: center;
 }
 
-/* Conteúdo Central */
+/* Conteúdo Central Agrupado */
 .reception-info {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.38rem;
   z-index: 1;
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
 }
@@ -698,24 +703,24 @@
 .reception-block {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.08rem;
 }
 
 .reception-title {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: clamp(1.1rem, 1.5vw, 1.32rem);
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
   font-weight: 900;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin: 0 0 0.15rem 0;
+  margin: 0;
 }
 
 .reception-time,
 .reception-instructions {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: clamp(0.9rem, 1.15vw, 1rem);
-  line-height: 1.45;
+  font-size: clamp(0.85rem, 1.05vw, 0.94rem);
+  line-height: 1.32;
   color: #FFFFFF;
   margin: 0;
 }
@@ -731,22 +736,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.25rem;
   z-index: 1;
-  padding-left: 0.4rem;
+  padding-left: 0.3rem;
   align-self: flex-start;
-  margin-top: 0.15rem;
+  margin-top: 0;
 }
 
 .checkin-icon {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   color: #FFFFFF;
 }
 
 .checkin-label {
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: 0.02em;
@@ -777,7 +782,7 @@
   font-family: var(--font-family);
   font-size: clamp(1.9rem, 3.2vw, 2.5rem);
   font-weight: 900;
-  color: #C48B1E;
+  color: #BA8728;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
@@ -785,7 +790,7 @@
 .lectures-heading-line {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, #C48B1E 0%, rgba(196, 139, 30, 0.15) 100%);
+  background: linear-gradient(90deg, #BA8728 0%, rgba(186, 135, 40, 0.15) 100%);
   border-radius: 2px;
 }
 
@@ -793,10 +798,10 @@
 .day-card {
   position: relative;
   background: var(--color-white);
-  border: 2px solid #D49B2A;
+  border: 2px solid #BA8728;
   border-radius: 22px;
   padding: clamp(2rem, 4vh, 2.8rem) clamp(1.5rem, 3.5vw, 2.8rem);
-  box-shadow: 0 6px 22px rgba(10, 25, 63, 0.04);
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -804,7 +809,7 @@
   position: absolute;
   top: 0;
   right: clamp(1.5rem, 3vw, 2.8rem);
-  background: #C48B1E;
+  background: #BA8728;
   color: var(--color-white);
   font-family: var(--font-family);
   font-size: clamp(0.76rem, 1vw, 0.9rem);
@@ -813,7 +818,7 @@
   text-transform: uppercase;
   padding: 0.55rem 1.6rem;
   border-radius: 0 0 14px 14px;
-  box-shadow: 0 4px 10px rgba(196, 139, 30, 0.25);
+  box-shadow: none;
   z-index: 3;
 }
 
@@ -831,6 +836,24 @@
   gap: clamp(1.2rem, 3vw, 2.4rem);
 }
 
+.speaker-item--no-photo {
+  align-items: flex-start;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px dashed rgba(212, 155, 42, 0.35);
+  position: relative;
+  z-index: 2;
+}
+
+.speaker-item--no-photo:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.speaker-item--no-photo .speaker-details {
+  max-width: 100%;
+  width: 100%;
+}
+
 /* Molduras Orgânicas (Blobs) para os Palestrantes */
 .speaker-avatar-frame {
   width: clamp(105px, 13vw, 145px);
@@ -842,8 +865,14 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 16px rgba(196, 139, 30, 0.18);
-  transition: transform 0.3s ease;
   overflow: hidden;
+}
+
+.speaker-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .speaker-avatar-frame--shape1 {
@@ -908,13 +937,13 @@
   color: var(--color-gray-900);
 }
 
-/* ---- 8.5 Padrão Honeycomb Decorativo de Fundo ---- */
+/* ---- 8.5 Padrão Honeycomb Geométrico no Fundo do Card ---- */
 .honeycomb-decor {
   position: absolute;
-  right: -20px;
+  right: -15px;
   bottom: -20px;
-  width: 320px;
-  height: 320px;
+  width: clamp(240px, 30vw, 340px);
+  height: clamp(240px, 30vw, 340px);
   pointer-events: none;
   z-index: 1;
 }
@@ -925,38 +954,19 @@
   display: block;
 }
 
-.honeycomb-icons {
-  position: absolute;
-  top: 40%;
-  left: 35%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.honeycomb-icon-box {
-  width: 32px;
-  height: 32px;
-  opacity: 0.45;
-}
-
-.honeycomb-icon-svg {
-  width: 100%;
-  height: 100%;
-}
-
 /* ---- 8.6 Seção de Oficinas Pedagógicas ---- */
 .workshops-banner-card {
-  background: linear-gradient(95deg, #C48B1E 0%, #B87F14 100%);
+  background: #BA8728;
+  background: linear-gradient(100deg, #BA8728 0%, #B07F20 100%);
   color: var(--color-white);
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  border-radius: 12px;
-  padding: 1.2rem 1.8rem;
+  border-radius: 0;
+  padding: 0.85rem clamp(1.6rem, 2.8vw, 2.5rem);
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: clamp(1.2rem, 2.5vw, 2.2rem);
-  box-shadow: 0 6px 20px rgba(196, 139, 30, 0.25);
+  box-shadow: 0 6px 20px rgba(186, 135, 40, 0.2);
   margin-top: clamp(1.5rem, 3.5vh, 2.8rem);
 }
 
@@ -985,78 +995,139 @@
   gap: 1.2rem;
 }
 
-.workshop-card {
-  min-height: clamp(230px, 30vh, 340px);
-  position: relative;
-  background: var(--color-white);
-  border: 2px solid #D49B2A;
-  border-radius: 22px;
-  padding: clamp(1.8rem, 3.5vh, 2.5rem);
-  overflow: hidden;
-  box-shadow: 0 6px 22px rgba(10, 25, 63, 0.04);
+/* Workshops Header / Search / Filter */
+.workshops-controls {
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 
-.honeycomb-decor--workshop {
-  right: -10px;
-  bottom: -10px;
-  width: clamp(220px, 32vw, 340px);
-  height: clamp(220px, 32vw, 340px);
-}
-
-.workshop-content-container {
+.workshops-search-wrapper {
   position: relative;
-  z-index: 2;
+  flex: 1;
+  min-width: 260px;
+  max-width: 480px;
+}
+
+.workshops-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9CA3AF;
+  pointer-events: none;
+}
+
+.workshops-search-input {
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 12px 18px 12px 42px;
+  border-radius: 30px;
+  border: 1.5px solid #E2D9C8;
+  background-color: #FFFFFF;
+  font-family: var(--font-family);
+  font-size: 0.92rem;
+  color: #1F2937;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
-.workshop-empty-state {
+.workshops-search-input:focus {
+  border-color: #C48B1E;
+  box-shadow: 0 0 0 3px rgba(196, 139, 30, 0.15);
+}
+
+.workshops-count-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #0A193F;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* Lista de Oficinas Pedagógicas em Formato de Pílulas Horizontais */
+.workshops-list-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.85rem;
-  text-align: center;
-  padding: 1.5rem;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
-.workshop-empty-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #FAF7F0;
-  border: 1.5px solid rgba(212, 155, 42, 0.35);
+.workshops-time-banner {
+  background-color: #BA8728;
+  background: linear-gradient(100deg, #BA8728 0%, #B07F20 100%);
+  color: #FFFFFF;
+  font-family: var(--font-family);
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  font-weight: 800;
+  text-align: center;
+  padding: 11px 24px;
+  border-radius: 16px;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+  box-shadow: none;
+}
+
+.workshops-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 100%;
+}
+
+.workshop-pill-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 3px 10px rgba(196, 139, 30, 0.12);
+  gap: 28px;
+  background: #ECDCC6;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  box-sizing: border-box;
+  width: 100%;
+  box-shadow: none;
 }
 
-.workshop-placeholder-svg {
-  width: 26px;
-  height: 26px;
-  color: #C48B1E;
-}
-
-.workshop-placeholder-text {
+.workshop-pill-speaker {
   font-family: var(--font-family);
-  font-size: clamp(0.92rem, 1.15vw, 1.08rem);
-  font-weight: 700;
-  color: #8A7352;
-  letter-spacing: 0.01em;
+  font-weight: 900;
+  font-size: clamp(0.96rem, 1.15vw, 1.1rem);
+  color: #0E1626;
+  flex: 0 0 215px;
+  width: 215px;
+  max-width: 215px;
+  word-break: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.22;
+}
+
+.workshop-pill-theme {
+  font-family: var(--font-family);
+  font-size: clamp(0.88rem, 1.02vw, 0.96rem);
+  font-weight: 500;
+  color: #242424;
+  line-height: 1.38;
+  flex: 1;
+  text-align: left;
 }
 
 /* ---- 8.7 Responsividade da Seção de Programação ---- */
 @media (max-width: 768px) {
   .reception-card,
   .workshops-banner-card {
+    width: 100%;
+    margin-left: 0;
+    padding: 1.2rem 1.4rem;
     grid-template-columns: 1fr;
     gap: 1rem;
     text-align: center;
@@ -1110,6 +1181,19 @@
   .speaker-details {
     align-items: center;
   }
+
+  .workshop-pill-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    border-radius: 18px;
+    padding: 14px 18px;
+  }
+
+  .workshop-pill-speaker {
+    min-width: unset;
+    max-width: 100%;
+  }
 }
 
 /* ============================================
@@ -1122,7 +1206,7 @@
   justify-content: center;
   gap: 12px;
   padding: 16px 38px;
-  background-color: #D49B2A;
+  background-color: #BA8728;
   color: #FFFFFF;
   font-size: 1.02rem;
   font-weight: 900;
@@ -1135,10 +1219,7 @@
 }
 
 .btn-inscricao-cta:hover {
-  background-color: #B87F14;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: none;
+  transform: translateY(-3px);
 }
 
 .btn-consulta-cta {
@@ -1161,9 +1242,5 @@
 }
 
 .btn-consulta-cta:hover {
-  background-color: #16285A;
-  color: #FFFFFF;
-  border-color: #16285A;
-  transform: translateY(-2px);
-  box-shadow: none;
+  transform: translateY(-3px);
 }
