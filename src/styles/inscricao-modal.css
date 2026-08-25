@@ -133,10 +133,15 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.inscricao-input:hover,
+.inscricao-select:hover {
+  border-color: #9ca3af;
+}
+
 .inscricao-input:focus,
 .inscricao-select:focus {
   border-color: #0A193F;
-  box-shadow: 0 0 0 3px rgba(10, 25, 63, 0.1);
+  box-shadow: 0 0 0 3px rgba(10, 25, 63, 0.08);
 }
 
 .inscricao-btn-submit {
@@ -431,4 +436,12 @@
   background-color: rgba(10, 25, 63, 0.1);
   color: #0A193F;
   font-weight: 700;
+}
+
+.google-maps-link {
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.google-maps-link:hover {
+  opacity: 0.75;
 }

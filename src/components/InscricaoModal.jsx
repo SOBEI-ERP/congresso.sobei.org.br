@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { enviarInscricaoCongresso } from '@/lib/api';
+import { formatCpf, validateCpf } from '@/lib/cpfValidator';
 
 const UNIDADES_SOBEI = [
   'Acácias',
@@ -38,14 +39,6 @@ export default function InscricaoModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const formatCpf = (value) => {
-    const numbers = value.replace(/\D/g, '').slice(0, 11);
-    if (numbers.length <= 3) return numbers;
-    if (numbers.length <= 6) return `${numbers.slice(0, 3)}.${numbers.slice(3)}`;
-    if (numbers.length <= 9) return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6)}`;
-    return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6, 9)}-${numbers.slice(9, 11)}`;
-  };
-
   const handleCpfChange = (e) => {
     setCpf(formatCpf(e.target.value));
   };
@@ -59,9 +52,8 @@ export default function InscricaoModal({ isOpen, onClose }) {
       return;
     }
 
-    const cpfNumeros = cpf.replace(/\D/g, '');
-    if (cpfNumeros.length !== 11) {
-      setErro('Por favor, informe um CPF válido com 11 dígitos.');
+    if (!validateCpf(cpf)) {
+      setErro('CPF inválido. Por favor, verifique os dígitos e digite um CPF válido.');
       return;
     }
 
@@ -142,14 +134,54 @@ export default function InscricaoModal({ isOpen, onClose }) {
             <p className="inscricao-sucesso-desc">
               Sua inscrição no <strong>XX Congresso de Educação Infantil SOBEI</strong> foi realizada com sucesso.
             </p>
-            <div className="inscricao-sucesso-card">
-              <p><strong>Participante:</strong> {nomeCompleto}</p>
-              <p><strong>CPF:</strong> {cpf}</p>
-              <p><strong>E-mail:</strong> {email}</p>
-              <p><strong>OSC:</strong> {tipoOsc === 'SOBEI' ? `SOBEI — ${unidade}` : outraOsc}</p>
+            {/* Informações Explícitas */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '1rem',
+                padding: '1.2rem 0',
+                borderTop: '1px solid #E5E7EB',
+                borderBottom: '1px solid #E5E7EB',
+                textAlign: 'left',
+                margin: '1.2rem 0',
+              }}
+            >
+              <div>
+                <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', marginBottom: '2px' }}>
+                  Participante
+                </span>
+                <span style={{ fontSize: '0.95rem', fontWeight: '700', color: '#0A193F' }}>
+                  {nomeCompleto}
+                </span>
+              </div>
+              <div>
+                <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', marginBottom: '2px' }}>
+                  CPF
+                </span>
+                <span style={{ fontSize: '0.95rem', fontWeight: '700', color: '#0A193F' }}>
+                  {cpf}
+                </span>
+              </div>
+              <div>
+                <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', marginBottom: '2px' }}>
+                  E-mail
+                </span>
+                <span style={{ fontSize: '0.95rem', fontWeight: '600', color: '#0A193F', wordBreak: 'break-all' }}>
+                  {email}
+                </span>
+              </div>
+              <div>
+                <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', marginBottom: '2px' }}>
+                  OSC / Instituição
+                </span>
+                <span style={{ fontSize: '0.95rem', fontWeight: '700', color: '#0A193F' }}>
+                  {tipoOsc === 'SOBEI' ? `SOBEI — ${unidade}` : outraOsc}
+                </span>
+              </div>
             </div>
             <p className="inscricao-sucesso-instrucao">
-              No dia do evento, apresente seu documento com foto no credenciamento para retirada do seu kit.
+              No dia do evento, apresente seu documento com foto no credenciamento na <strong>Av. Rubens Montanaro de Borba, 459, Jardim Regis</strong> para retirada do seu kit.
             </p>
             <button
               className="inscricao-btn-submit"

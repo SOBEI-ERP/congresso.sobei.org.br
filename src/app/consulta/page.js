@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { consultarInscricaoCongresso } from '@/lib/api';
+import { formatCpf, validateCpf } from '@/lib/cpfValidator';
 
 export default function ConsultaPage() {
   const [cpf, setCpf] = useState('');
@@ -10,14 +11,6 @@ export default function ConsultaPage() {
   const [resultado, setResultado] = useState(null);
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState('');
-
-  const formatCpf = (value) => {
-    const numbers = value.replace(/\D/g, '').slice(0, 11);
-    if (numbers.length <= 3) return numbers;
-    if (numbers.length <= 6) return `${numbers.slice(0, 3)}.${numbers.slice(3)}`;
-    if (numbers.length <= 9) return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6)}`;
-    return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6, 9)}-${numbers.slice(9, 11)}`;
-  };
 
   const handleCpfChange = (e) => {
     setCpf(formatCpf(e.target.value));
@@ -28,9 +21,8 @@ export default function ConsultaPage() {
     setErro('');
     setResultado(null);
 
-    const cpfNumeros = cpf.replace(/\D/g, '');
-    if (cpfNumeros.length !== 11) {
-      setErro('Por favor, informe um CPF válido com 11 dígitos.');
+    if (!validateCpf(cpf)) {
+      setErro('CPF inválido. Por favor, verifique os dígitos e digite um CPF válido.');
       return;
     }
 
@@ -168,38 +160,97 @@ export default function ConsultaPage() {
                 Sua participação no <strong>XX Congresso de Educação Infantil SOBEI</strong> foi registrada com sucesso.
               </p>
               
-              <div className="inscricao-sucesso-card" style={{ maxWidth: '560px', margin: '0 auto 1.8rem', padding: '1.6rem', backgroundColor: '#FAF5EB', borderRadius: '16px', border: '1px solid #EAE0CD' }}>
-                <p style={{ fontSize: '1rem', margin: '0 0 0.5rem' }}><strong>Participante:</strong> {resultado.nomeCompleto}</p>
-                <p style={{ fontSize: '1rem', margin: '0 0 0.5rem' }}><strong>CPF:</strong> {resultado.cpf}</p>
-                <p style={{ fontSize: '1rem', margin: '0 0 0.5rem' }}><strong>E-mail:</strong> {resultado.email}</p>
-                <p style={{ fontSize: '1rem', margin: '0 0 1rem' }}>
-                  <strong>Instituição:</strong> {resultado.tipoOsc === 'SOBEI' ? `SOBEI — ${resultado.unidade}` : resultado.outraOsc}
-                </p>
-
-                {/* Status de Check-in por Dia */}
-                <div style={{ borderTop: '1px solid #E5D9C3', paddingTop: '0.8rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.8rem' }}>
-                  <div style={{ background: resultado.presenteDia11 ? '#D1FAE5' : '#F3F4F6', padding: '10px 12px', borderRadius: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.82rem', fontWeight: '800', color: resultado.presenteDia11 ? '#065F46' : '#4B5563' }}>
-                      11/SET (SEXTA-FEIRA)
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: resultado.presenteDia11 ? '#047857' : '#6B7280', marginTop: '2px', fontWeight: '600' }}>
-                      {resultado.presenteDia11 ? '✓ Check-in Confirmado' : 'Aguardando Credenciamento'}
-                    </div>
+              {/* Informações Explícitas do Participante em Grid Limpo */}
+              <div style={{ maxWidth: '640px', margin: '0 auto 2rem', textAlign: 'left' }}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                    gap: '1.2rem 1.6rem',
+                    padding: '1.6rem 0',
+                    borderTop: '1px solid #E5E7EB',
+                    borderBottom: '1px solid #E5E7EB',
+                  }}
+                >
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      Participante
+                    </span>
+                    <span style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0A193F' }}>
+                      {resultado.nomeCompleto}
+                    </span>
                   </div>
 
-                  <div style={{ background: resultado.presenteDia12 ? '#D1FAE5' : '#F3F4F6', padding: '10px 12px', borderRadius: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.82rem', fontWeight: '800', color: resultado.presenteDia12 ? '#065F46' : '#4B5563' }}>
-                      12/SET (SÁBADO)
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      CPF
+                    </span>
+                    <span style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0A193F' }}>
+                      {resultado.cpf}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      E-mail
+                    </span>
+                    <span style={{ fontSize: '1.02rem', fontWeight: '600', color: '#0A193F', wordBreak: 'break-all' }}>
+                      {resultado.email}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      Instituição
+                    </span>
+                    <span style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0A193F' }}>
+                      {resultado.tipoOsc === 'SOBEI' ? `SOBEI — ${resultado.unidade}` : resultado.outraOsc}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Status de Check-in por Dia */}
+                <div style={{ marginTop: '1.6rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+                    <div
+                      style={{
+                        background: resultado.presenteDia11 ? '#ECFDF5' : '#F9FAFB',
+                        border: resultado.presenteDia11 ? '1.5px solid #10B981' : '1px solid #E5E7EB',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <div style={{ fontSize: '0.85rem', fontWeight: '800', color: resultado.presenteDia11 ? '#065F46' : '#374151' }}>
+                        11/SET (SEXTA-FEIRA)
+                      </div>
+                      <div style={{ fontSize: '0.82rem', color: resultado.presenteDia11 ? '#059669' : '#6B7280', marginTop: '4px', fontWeight: '600' }}>
+                        {resultado.presenteDia11 ? '✓ Check-in Confirmado' : 'Aguardando Credenciamento'}
+                      </div>
                     </div>
-                    <div style={{ fontSize: '0.78rem', color: resultado.presenteDia12 ? '#047857' : '#6B7280', marginTop: '2px', fontWeight: '600' }}>
-                      {resultado.presenteDia12 ? '✓ Check-in Confirmado' : 'Aguardando Credenciamento'}
+
+                    <div
+                      style={{
+                        background: resultado.presenteDia12 ? '#ECFDF5' : '#F9FAFB',
+                        border: resultado.presenteDia12 ? '1.5px solid #10B981' : '1px solid #E5E7EB',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <div style={{ fontSize: '0.85rem', fontWeight: '800', color: resultado.presenteDia12 ? '#065F46' : '#374151' }}>
+                        12/SET (SÁBADO)
+                      </div>
+                      <div style={{ fontSize: '0.82rem', color: resultado.presenteDia12 ? '#059669' : '#6B7280', marginTop: '4px', fontWeight: '600' }}>
+                        {resultado.presenteDia12 ? '✓ Check-in Confirmado' : 'Aguardando Credenciamento'}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <p className="inscricao-sucesso-instrucao" style={{ fontSize: '0.98rem', color: '#6b7280', maxWidth: '520px', margin: '0 auto 2.2rem', lineHeight: '1.6' }}>
-                No dia do evento, compareça ao credenciamento com seu documento oficial com foto para retirar seu crachá e kit do congresso.
+              <p className="inscricao-sucesso-instrucao" style={{ fontSize: '0.98rem', color: '#4B5563', maxWidth: '560px', margin: '0 auto 2.2rem', lineHeight: '1.6' }}>
+                No dia do evento, compareça ao credenciamento na <strong>Av. Rubens Montanaro de Borba, 459, Jardim Regis</strong> com seu documento oficial com foto para retirar seu crachá e kit do congresso.
               </p>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -233,6 +284,38 @@ export default function ConsultaPage() {
                 >
                   Voltar para a Programação
                 </Link>
+
+                <button
+                  type="button"
+                  onClick={() => setResultado(null)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '16px 28px',
+                    backgroundColor: 'transparent',
+                    color: '#0A193F',
+                    border: '1.5px solid #0A193F',
+                    borderRadius: '35px',
+                    fontSize: '0.95rem',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#0A193F';
+                    e.currentTarget.style.color = '#FFFFFF';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = '#0A193F';
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
+                  Nova Consulta
+                </button>
               </div>
             </div>
           ) : (

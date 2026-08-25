@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { enviarInscricaoCongresso } from '@/lib/api';
+import { formatCpf, validateCpf } from '@/lib/cpfValidator';
 import CustomSelect from '@/components/CustomSelect';
 
 const OSC_OPTIONS = [
@@ -45,14 +46,6 @@ export default function InscricaoPage() {
   const [erro, setErro] = useState('');
   const [sucesso, setSucesso] = useState(false);
 
-  const formatCpf = (value) => {
-    const numbers = value.replace(/\D/g, '').slice(0, 11);
-    if (numbers.length <= 3) return numbers;
-    if (numbers.length <= 6) return `${numbers.slice(0, 3)}.${numbers.slice(3)}`;
-    if (numbers.length <= 9) return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6)}`;
-    return `${numbers.slice(0, 3)}.${numbers.slice(3, 6)}.${numbers.slice(6, 9)}-${numbers.slice(9, 11)}`;
-  };
-
   const handleCpfChange = (e) => {
     setCpf(formatCpf(e.target.value));
   };
@@ -66,9 +59,8 @@ export default function InscricaoPage() {
       return;
     }
 
-    const cpfNumeros = cpf.replace(/\D/g, '');
-    if (cpfNumeros.length !== 11) {
-      setErro('Por favor, informe um CPF válido com 11 dígitos.');
+    if (!validateCpf(cpf)) {
+      setErro('CPF inválido. Por favor, verifique os dígitos e digite um CPF válido.');
       return;
     }
 
@@ -227,11 +219,54 @@ export default function InscricaoPage() {
                 Sua participação no <strong>XX Congresso de Educação Infantil SOBEI</strong> foi registrada com sucesso.
               </p>
               
-              <div className="inscricao-sucesso-card" style={{ maxWidth: '560px', margin: '0 auto 1.6rem', padding: '1.6rem', backgroundColor: '#FAF5EB', borderRadius: '16px', border: '1px solid #EAE0CD' }}>
-                <p style={{ fontSize: '1rem', margin: '0 0 0.5rem' }}><strong>Participante:</strong> {nomeCompleto}</p>
-                <p style={{ fontSize: '1rem', margin: '0 0 0.5rem' }}><strong>CPF:</strong> {cpf}</p>
-                <p style={{ fontSize: '1rem', margin: '0 0 0.5rem' }}><strong>E-mail:</strong> {email}</p>
-                <p style={{ fontSize: '1rem', margin: 0 }}><strong>Instituição:</strong> {tipoOsc === 'SOBEI' ? `SOBEI — ${unidade}` : outraOsc}</p>
+              {/* Informações Explícitas do Participante em Grid Limpo */}
+              <div style={{ maxWidth: '640px', margin: '0 auto 1.8rem', textAlign: 'left' }}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                    gap: '1.2rem 1.6rem',
+                    padding: '1.6rem 0',
+                    borderTop: '1px solid #E5E7EB',
+                    borderBottom: '1px solid #E5E7EB',
+                  }}
+                >
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      Participante
+                    </span>
+                    <span style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0A193F' }}>
+                      {nomeCompleto}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      CPF
+                    </span>
+                    <span style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0A193F' }}>
+                      {cpf}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      E-mail
+                    </span>
+                    <span style={{ fontSize: '1.02rem', fontWeight: '600', color: '#0A193F', wordBreak: 'break-all' }}>
+                      {email}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.78rem', fontWeight: '700', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
+                      Instituição
+                    </span>
+                    <span style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0A193F' }}>
+                      {tipoOsc === 'SOBEI' ? `SOBEI — ${unidade}` : outraOsc}
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {/* Orientação Explícita sobre Uso de E-mail e CPF para Consultas */}
@@ -246,8 +281,8 @@ export default function InscricaoPage() {
                 </span>
               </div>
 
-              <p className="inscricao-sucesso-instrucao" style={{ fontSize: '0.98rem', color: '#6b7280', maxWidth: '520px', margin: '0 auto 2.2rem', lineHeight: '1.6' }}>
-                No dia do evento, compareça ao credenciamento com seu documento oficial com foto para retirar seu crachá e kit do congresso.
+              <p className="inscricao-sucesso-instrucao" style={{ fontSize: '0.98rem', color: '#4B5563', maxWidth: '560px', margin: '0 auto 2.2rem', lineHeight: '1.6' }}>
+                No dia do evento, compareça ao credenciamento na <strong>Av. Rubens Montanaro de Borba, 459, Jardim Regis</strong> com seu documento oficial com foto para retirar seu crachá e kit do congresso.
               </p>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
