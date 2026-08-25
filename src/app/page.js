@@ -201,66 +201,49 @@ export default function Home() {
 
           {/* Middle: Title */}
           <div className="workshops-banner-title">
-            <h2 className="workshops-title-text" style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.65rem)', letterSpacing: '0.04em' }}>INSCREVA-SE</h2>
+            <h2 className="workshops-title-text">INSCREVA-SE</h2>
           </div>
         </div>
 
         {/* Card de Informações e Chamada para Inscrição */}
-        <div className="workshop-period-block" style={{ marginTop: '1.5rem' }}>
-          <div className="day-card" style={{ padding: 'clamp(2rem, 4vh, 2.8rem) clamp(1.5rem, 3.5vw, 2.8rem)' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
+        <div className="workshop-period-block info-card-period">
+          <div className="day-card">
+            <div className="info-card__body">
               <div>
-                <h3 style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', fontWeight: '900', color: '#0A193F', marginBottom: '0.6rem' }}>
+                <h3 className="info-card__title">
                   Sobre o Congresso
                 </h3>
-                <p style={{ color: '#4b5563', lineHeight: '1.7', fontSize: 'clamp(0.92rem, 1.2vw, 1rem)' }}>
+                <p className="info-card__text">
                   Celebrando 20 anos de compromisso com a infância, o <strong>Congresso de Educação Infantil SOBEI</strong> tem como tema central <em>"Cuidar, acolher e incluir: construindo vínculos na primeiríssima infância"</em>. Um encontro transformador que reúne educadores, gestores e especialistas para debater práticas inovadoras e fortalecer vínculos pedagógicos.
                 </p>
               </div>
 
-              {/* Informações: Local, Dias e Horários Limpos e Alinhados */}
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '2rem',
-                  paddingTop: '1.4rem',
-                  borderTop: '1px solid #E5E7EB',
-                }}
-              >
+              {/* Informações: Local, Dias e Horários */}
+              <div className="info-card__details-grid">
                 {/* Coluna 1: Local do Congresso */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#B45309', fontWeight: '800', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div className="info-card__detail-col">
+                  <div className="info-card__detail-label">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
                     <span>Local do Congresso</span>
                   </div>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-                    <p style={{ color: '#0A193F', fontSize: '1.02rem', margin: 0, fontWeight: '800', lineHeight: '1.4' }}>
+                  <div className="info-card__address-group">
+                    <p className="info-card__address-main">
                       Av. Rubens Montanaro de Borba, 459
                     </p>
-                    <p style={{ color: '#4B5563', fontSize: '0.92rem', margin: 0, fontWeight: '600' }}>
+                    <p className="info-card__address-sub">
                       Jardim Regis — São Paulo, SP
                     </p>
                   </div>
 
-                  <div style={{ marginTop: 'auto', paddingTop: '4px' }}>
+                  <div className="info-card__detail-footer">
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=Av.+Rubens+Montanaro+de+Borba,+459+-+Jardim+Regis,+S%C3%A3o+Paulo+-+SP"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="google-maps-link"
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        color: '#0A193F',
-                        fontSize: '0.85rem',
-                        fontWeight: '700',
-                        textDecoration: 'underline',
-                      }}
+                      className="info-card__maps-link"
                     >
                       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -273,25 +256,25 @@ export default function Home() {
                 </div>
 
                 {/* Coluna 2: Dias & Horários */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#B45309', fontWeight: '800', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div className="info-card__detail-col">
+                  <div className="info-card__detail-label">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                       <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
                     </svg>
                     <span>Dias &amp; Horários</span>
                   </div>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <p style={{ color: '#0A193F', fontSize: '0.95rem', margin: 0, fontWeight: '600', lineHeight: '1.4' }}>
-                      <strong style={{ fontWeight: '800' }}>11/Set (Sexta-feira):</strong> 18h00 às 21h30
+                  <div className="info-card__schedule-group">
+                    <p className="info-card__schedule-item">
+                      <strong>11/Set (Sexta-feira):</strong> 18h00 às 21h30
                     </p>
-                    <p style={{ color: '#0A193F', fontSize: '0.95rem', margin: 0, fontWeight: '600', lineHeight: '1.4' }}>
-                      <strong style={{ fontWeight: '800' }}>12/Set (Sábado):</strong> 08h00 às 17h00
+                    <p className="info-card__schedule-item">
+                      <strong>12/Set (Sábado):</strong> 08h00 às 17h00
                     </p>
                   </div>
 
-                  <div style={{ marginTop: 'auto', paddingTop: '4px' }}>
-                    <p style={{ color: '#6B7280', fontSize: '0.85rem', margin: 0, fontWeight: '500' }}>
+                  <div className="info-card__detail-footer">
+                    <p className="info-card__schedule-note">
                       Credenciamento presencial no local
                     </p>
                   </div>
@@ -299,7 +282,7 @@ export default function Home() {
               </div>
 
               {/* Ações: Inscrição e Consulta */}
-              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: '0.8rem' }}>
+              <div className="info-card__actions">
                 <Link
                   href="/inscricao"
                   className="btn-inscricao-cta"

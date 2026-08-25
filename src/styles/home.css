@@ -1278,6 +1278,128 @@
 }
 
 /* ============================================
+   Card de Informações do Congresso (Inscrições)
+   ============================================ */
+
+.info-card-period {
+  margin-top: var(--spacing-lg);
+}
+
+.info-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.info-card__title {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: var(--font-weight-black);
+  color: var(--color-congress-navy);
+  margin-bottom: 0.6rem;
+}
+
+.info-card__text {
+  color: #4b5563;
+  line-height: var(--line-height-relaxed);
+  font-size: clamp(0.92rem, 1.2vw, 1rem);
+}
+
+.info-card__details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  padding-top: 1.4rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+.info-card__detail-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-card__detail-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: #B45309;
+  font-weight: var(--font-weight-extrabold);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-card__address-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.info-card__address-main {
+  color: var(--color-congress-navy);
+  font-size: 1.02rem;
+  margin: 0;
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1.4;
+}
+
+.info-card__address-sub {
+  color: #4B5563;
+  font-size: 0.92rem;
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+}
+
+.info-card__detail-footer {
+  margin-top: auto;
+  padding-top: var(--spacing-xs);
+}
+
+.info-card__maps-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-congress-navy);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+}
+
+.info-card__schedule-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-card__schedule-item {
+  color: var(--color-congress-navy);
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.info-card__schedule-item strong {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.info-card__schedule-note {
+  color: #6B7280;
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.info-card__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+/* ============================================
    Botões do Card de Inscrições & Consulta
    ============================================ */
 
