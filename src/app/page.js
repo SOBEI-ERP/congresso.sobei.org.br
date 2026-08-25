@@ -209,7 +209,7 @@ export default function Home() {
         <div className="workshop-period-block info-card-period">
           <div className="day-card">
             <div className="info-card__body">
-              <div>
+              <div className="info-card__header">
                 <h3 className="info-card__title">
                   Sobre o Congresso
                 </h3>
