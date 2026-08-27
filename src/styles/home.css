@@ -1118,7 +1118,7 @@
   flex-shrink: 0;
   word-break: normal;
   overflow-wrap: break-word;
-  white-space: normal;
+  white-space: pre-line;
   line-height: 1.22;
 }
 
