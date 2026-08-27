@@ -181,7 +181,7 @@ export default function InscricaoModal({ isOpen, onClose }) {
               </div>
             </div>
             <p className="inscricao-sucesso-instrucao">
-              No dia do evento, apresente seu documento com foto no credenciamento na <strong>Av. Rubens Montanaro de Borba, 459, Jardim Regis</strong> para retirada do seu kit.
+              No dia do evento, apresente seu documento com foto no credenciamento na <strong>Av. Rubens Montanaro de Borba, 477, Jardim Regis</strong> para retirada do seu kit.
             </p>
             <button
               className="inscricao-btn-submit"

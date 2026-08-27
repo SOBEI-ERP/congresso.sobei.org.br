@@ -282,7 +282,7 @@ export default function InscricaoPage() {
               </div>
 
               <p className="inscricao-sucesso-instrucao" style={{ fontSize: '0.98rem', color: '#4B5563', maxWidth: '560px', margin: '0 auto 2.2rem', lineHeight: '1.6' }}>
-                No dia do evento, compareça ao credenciamento na <strong>Av. Rubens Montanaro de Borba, 459, Jardim Regis</strong> com seu documento oficial com foto para retirar seu crachá e kit do congresso.
+                No dia do evento, compareça ao credenciamento na <strong>Av. Rubens Montanaro de Borba, 477, Jardim Regis</strong> com seu documento oficial com foto para retirar seu crachá e kit do congresso.
               </p>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>

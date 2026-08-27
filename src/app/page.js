@@ -231,7 +231,7 @@ export default function Home() {
 
                   <div className="info-card__address-group">
                     <p className="info-card__address-main">
-                      Av. Rubens Montanaro de Borba, 459
+                      Av. Rubens Montanaro de Borba, 477
                     </p>
                     <p className="info-card__address-sub">
                       Jardim Regis — São Paulo, SP
