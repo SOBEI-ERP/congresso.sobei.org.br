@@ -92,17 +92,17 @@ export default function ConsultaPage() {
         <div className="schedule-bg-wave schedule-bg-wave--left">
           <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
             <path
-              d="M -20,0 C 220,180 80,480 260,750 C 360,920 160,1180 60,1400 L -20,1400 Z"
+              d="M -20,0 L 260,0 C 260,180 80,480 260,750 C 360,920 160,1180 60,1400 L -20,1400 Z"
               fill="#EDE5D3"
               opacity="0.5"
             />
             <path
-              d="M -20,0 C 140,160 30,420 180,680 C 260,840 90,1080 -20,1250 Z"
+              d="M -20,0 L 190,0 C 190,200 30,440 180,680 C 260,840 90,1080 -20,1250 L -20,1400 Z"
               fill="#F3ECE0"
               opacity="0.65"
             />
             <path
-              d="M -20,300 C 100,450 40,700 150,950 C 80,1150 -20,1300 -20,1400 Z"
+              d="M -20,0 L 120,0 C 120,300 40,700 150,950 C 80,1150 -20,1300 -20,1400 Z"
               fill="#FAF5EB"
               opacity="0.7"
             />
@@ -113,19 +113,19 @@ export default function ConsultaPage() {
         <div className="schedule-bg-wave schedule-bg-wave--right">
           <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
             <path
-              d="M 520,0 C 300,220 440,520 250,820 C 150,980 340,1220 450,1400 L 520,1400 Z"
+              d="M 520,0 L 240,0 C 240,180 420,480 250,820 C 150,980 340,1220 450,1400 L 520,1400 Z"
               fill="#EDE5D3"
               opacity="0.45"
             />
             <path
-              d="M 520,100 C 360,300 480,600 320,880 C 240,1040 420,1280 520,1350 Z"
+              d="M 520,0 L 310,0 C 310,220 480,600 320,880 C 240,1040 420,1280 520,1350 L 520,1400 Z"
               fill="#F3ECE0"
               opacity="0.6"
             />
             <path
-              d="M 520,400 C 380,580 450,850 350,1100 C 420,1260 520,1380 520,1400 Z"
+              d="M 520,0 L 380,0 C 380,300 450,850 350,1100 C 420,1260 520,1380 520,1400 Z"
               fill="#FAF5EB"
-              opacity="0.75"
+              opacity="0.7"
             />
           </svg>
         </div>

@@ -144,42 +144,42 @@ export default function Home() {
 
       {/* Flowing Organic Background Waves (Behind Cards - Left & Right) */}
       <div className="schedule-bg-decor" aria-hidden="true">
-        {/* Left Wave Flow (Simétrico ao Lado Direito) */}
+        {/* Left Wave Flow (Fim reto horizontal na barra azul) */}
         <div className="schedule-bg-wave schedule-bg-wave--left">
           <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
             <path
-              d="M -20,0 C 200,220 60,520 250,820 C 350,980 160,1220 50,1400 L -20,1400 Z"
+              d="M -20,0 L 260,0 C 260,180 80,480 250,820 C 350,980 160,1220 50,1400 L -20,1400 Z"
               fill="#DECBB0"
               opacity="0.4"
             />
             <path
-              d="M -20,100 C 140,300 20,600 180,880 C 260,1040 80,1280 -20,1350 Z"
+              d="M -20,0 L 190,0 C 190,220 40,560 180,880 C 260,1040 80,1280 -20,1350 L -20,1400 Z"
               fill="#EBDDC8"
               opacity="0.55"
             />
             <path
-              d="M -20,400 C 120,580 50,850 150,1100 C 80,1260 -20,1380 -20,1400 Z"
+              d="M -20,0 L 120,0 C 120,300 30,720 150,1100 C 80,1260 -20,1380 -20,1400 Z"
               fill="#F5EDE1"
               opacity="0.7"
             />
           </svg>
         </div>
 
-        {/* Right Wave Flow */}
+        {/* Right Wave Flow (Fim reto horizontal na barra azul) */}
         <div className="schedule-bg-wave schedule-bg-wave--right">
           <svg viewBox="0 0 500 1400" preserveAspectRatio="none" className="schedule-bg-wave-svg">
             <path
-              d="M 520,0 C 300,220 440,520 250,820 C 150,980 340,1220 450,1400 L 520,1400 Z"
+              d="M 520,0 L 240,0 C 240,180 420,480 250,820 C 150,980 340,1220 450,1400 L 520,1400 Z"
               fill="#DECBB0"
               opacity="0.4"
             />
             <path
-              d="M 520,100 C 360,300 480,600 320,880 C 240,1040 420,1280 520,1350 Z"
+              d="M 520,0 L 310,0 C 310,220 460,560 320,880 C 240,1040 420,1280 520,1350 L 520,1400 Z"
               fill="#EBDDC8"
               opacity="0.55"
             />
             <path
-              d="M 520,400 C 380,580 450,850 350,1100 C 420,1260 520,1380 520,1400 Z"
+              d="M 520,0 L 380,0 C 380,300 470,720 350,1100 C 420,1260 520,1380 520,1400 Z"
               fill="#F5EDE1"
               opacity="0.7"
             />

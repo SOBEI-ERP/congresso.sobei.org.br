@@ -534,10 +534,10 @@
 /* ---- Ondas Orgânicas de Fundo (Atrás de Todos os Cards - Esquerda e Direita) ---- */
 .schedule-bg-decor {
   position: absolute;
-  top: 70px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 70px);
+  height: 100%;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
