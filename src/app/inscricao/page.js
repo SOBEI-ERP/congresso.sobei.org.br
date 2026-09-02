@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { enviarInscricaoCongresso } from '@/lib/api';
+import { enviarInscricaoCongresso, obterStatusInscricoesCongresso } from '@/lib/api';
 import { formatCpf, validateCpf } from '@/lib/cpfValidator';
 import CustomSelect from '@/components/CustomSelect';
 
@@ -45,6 +45,19 @@ export default function InscricaoPage() {
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState('');
   const [sucesso, setSucesso] = useState(false);
+  const [statusVagas, setStatusVagas] = useState(null);
+  const [carregandoStatus, setCarregandoStatus] = useState(true);
+
+  useEffect(() => {
+    async function carregarStatus() {
+      const res = await obterStatusInscricoesCongresso();
+      if (res && res.success) {
+        setStatusVagas(res);
+      }
+      setCarregandoStatus(false);
+    }
+    carregarStatus();
+  }, []);
 
   const handleCpfChange = (e) => {
     setCpf(formatCpf(e.target.value));
@@ -346,6 +359,157 @@ export default function InscricaoPage() {
                   }}
                 >
                   Consultar Inscrição
+                </Link>
+              </div>
+            </div>
+          ) : (statusVagas && !statusVagas.inscricoesAbertas) ? (
+            <div style={{ textAlign: 'center', padding: '1.5rem 0' }}>
+              <div
+                style={{
+                  width: '76px',
+                  height: '76px',
+                  borderRadius: '50%',
+                  backgroundColor: '#FEF2F2',
+                  border: '2px solid #F87171',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1.5rem',
+                  color: '#DC2626',
+                }}
+              >
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                </svg>
+              </div>
+
+              <span
+                style={{
+                  display: 'inline-block',
+                  backgroundColor: '#DC2626',
+                  color: '#FFFFFF',
+                  fontSize: '0.82rem',
+                  fontWeight: '800',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.06em',
+                  padding: '4px 14px',
+                  borderRadius: '20px',
+                  marginBottom: '1rem',
+                }}
+              >
+                Capacidade Máxima Atingida
+              </span>
+
+              <h1
+                style={{
+                  fontSize: 'clamp(1.8rem, 3vw, 2.3rem)',
+                  fontWeight: '900',
+                  color: '#0A193F',
+                  marginBottom: '0.8rem',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                Inscrições Encerradas
+              </h1>
+
+              <p
+                style={{
+                  fontSize: '1.08rem',
+                  color: '#4B5563',
+                  maxWidth: '580px',
+                  margin: '0 auto 2rem',
+                  lineHeight: '1.6',
+                }}
+              >
+                O limite máximo de <strong>900 participantes</strong> para o <strong>XX Congresso de Educação Infantil SOBEI</strong> foi atingido e o formulário de novas inscrições foi encerrado.
+              </p>
+
+              <div
+                style={{
+                  maxWidth: '560px',
+                  margin: '0 auto 2.2rem',
+                  padding: '16px 20px',
+                  backgroundColor: '#F8FAFC',
+                  borderRadius: '14px',
+                  border: '1px solid #E2E8F0',
+                  textAlign: 'left',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#1E293B', fontWeight: '700', fontSize: '0.94rem' }}>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563EB" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="16" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                  </svg>
+                  Já realizou sua inscrição anteriormente?
+                </div>
+                <p style={{ margin: 0, fontSize: '0.88rem', color: '#64748B', lineHeight: '1.5' }}>
+                  Caso já tenha se inscrito, você pode consultar a confirmação e seus dados a qualquer momento informando seu CPF e e-mail.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link
+                  href="/consulta"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '16px 36px',
+                    backgroundColor: '#0A193F',
+                    color: '#FFFFFF',
+                    borderRadius: '35px',
+                    fontSize: '1rem',
+                    fontWeight: '800',
+                    textDecoration: 'none',
+                    letterSpacing: '0.03em',
+                    textTransform: 'uppercase',
+                    transition: 'all 0.25s ease',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#16285A';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#0A193F';
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
+                  Consultar Minha Inscrição
+                </Link>
+
+                <Link
+                  href="/"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '16px 30px',
+                    backgroundColor: '#FFFFFF',
+                    color: '#0A193F',
+                    border: '1.5px solid #CBD5E1',
+                    borderRadius: '35px',
+                    fontSize: '0.96rem',
+                    fontWeight: '700',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.borderColor = '#0A193F';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
+                  Página Principal
                 </Link>
               </div>
             </div>

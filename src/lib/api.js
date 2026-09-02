@@ -63,3 +63,41 @@ export async function consultarInscricaoCongresso(cpf, email) {
     };
   }
 }
+
+export async function obterStatusInscricoesCongresso() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/public/inscricoes-congresso/status`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      return {
+        success: false,
+        message: data.message || 'Erro ao consultar status de vagas.',
+        inscricoesAbertas: true,
+      };
+    }
+
+    return {
+      success: true,
+      data,
+      inscricoesAbertas: data.inscricoesAbertas !== false,
+      totalInscritos: data.totalInscritos || 0,
+      limiteMaximo: data.limiteMaximo || 900,
+      vagasRestantes: data.vagasRestantes || 0,
+    };
+  } catch (error) {
+    console.error('Erro ao consultar status de vagas:', error);
+    return {
+      success: false,
+      inscricoesAbertas: true, // fallback tolerante a falha de conexão inicial
+    };
+  }
+}
+
