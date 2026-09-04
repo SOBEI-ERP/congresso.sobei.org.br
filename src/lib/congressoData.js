@@ -4,7 +4,7 @@ export const PALESTRAS_SEXTA = [
     horario: '20h00',
     dia: 'Sexta-Feira | 11 de Setembro',
     nome: 'Luiz Felippe Matta Ramos',
-    tema: 'A motivação sob uma perspectiva multifacetada',
+    tema: 'A motivação sob uma perspectiva multifacetada.',
     foto: '/images/palestrantes/luis_felippe.jpeg',
     fotoAlt: 'Foto de Luiz Felippe Matta Ramos',
     shapeClass: 'speaker-avatar-frame--shape1',
@@ -17,7 +17,7 @@ export const PALESTRAS_SABADO = [
     horario: '08h30',
     dia: 'Sábado | 12 de Setembro',
     nome: 'Bárbara Alencar de Oliveira',
-    tema: 'O cuidado e a educação na primeiríssima infância',
+    tema: 'O cuidado e a educação na primeiríssima infância.',
     foto: '/images/palestrantes/Barbara.jpeg',
     fotoAlt: 'Foto de Bárbara Alencar de Oliveira',
     shapeClass: 'speaker-avatar-frame--shape2',
@@ -52,7 +52,7 @@ export const OFICINAS_DATA = [
   {
     id: 'cristiano-santos',
     ministrante: 'Cristiano dos Santos Araujo',
-    tema: 'Entre contos, brincadeiras e canções',
+    tema: 'Entre contos, brincadeiras e canções.',
     categoria: 'Música & Tradição Oral',
   },
   {
@@ -64,19 +64,19 @@ export const OFICINAS_DATA = [
   {
     id: 'ana-gilda',
     ministrante: 'Ana Gilda Leocadio',
-    tema: 'Contando Histórias Para Criar Memórias',
+    tema: 'Contando Histórias Para Criar Memórias.',
     categoria: 'Contação de Histórias',
   },
   {
     id: 'jaqueline-gomes',
     ministrante: 'Jaqueline Gomes Silva Veleda',
-    tema: 'Inclusão na Primeira Infância, Além do Diagnóstico',
+    tema: 'Inclusão na Primeira Infância, Além do Diagnóstico.',
     categoria: 'Educação Inclusiva',
   },
   {
     id: 'marcia-curti',
     ministrante: 'Márcia Curti de Mello',
-    tema: 'Inclusão no lúdico, como o brincar pode ajudar a superar barreiras',
+    tema: 'Inclusão no lúdico, como o brincar pode ajudar a superar barreiras.',
     categoria: 'Lúdico & Acessibilidade',
   },
   {
@@ -88,13 +88,13 @@ export const OFICINAS_DATA = [
   {
     id: 'erika-silva',
     ministrante: 'Erika Aparecida da Silva',
-    tema: 'Brincar, Criar e Pertencer: experiências antirracistas por meio das múltiplas linguagens da infância',
+    tema: 'Brincar, Criar e Pertencer: experiências antirracistas por meio das múltiplas linguagens da infância.',
     categoria: 'Educação Antirracista',
   },
   {
     id: 'regiane-lays',
     ministrante: 'Regiane Lays Jacinto de Brito',
-    tema: 'Saberes que alimentam: cuidado, memória e pertencimento na experiência de quem atua na cozinha',
+    tema: 'Saberes que alimentam: cuidado, memória e pertencimento na experiência de quem atua na cozinha.',
     categoria: 'Cuidado & Terapia Integrativa',
   },
   {
@@ -106,7 +106,7 @@ export const OFICINAS_DATA = [
   {
     id: 'talita-marques',
     ministrante: 'Talita Regina Lopes de Oliveira Marques',
-    tema: 'A importância do Brincar com Areia na Educação Infantil',
+    tema: 'A importância do Brincar com Areia na Educação Infantil.',
     categoria: 'Brincar Sensorial',
   },
   {
@@ -118,13 +118,13 @@ export const OFICINAS_DATA = [
   {
     id: 'patricia-couto',
     ministrante: 'Patrícia Couto Gimael',
-    tema: 'Cuidados, linguagem e inclusão',
+    tema: 'Cuidados, linguagem e inclusão.',
     categoria: 'Linguagem & Cuidados',
   },
   {
     id: 'raissa-cintra',
     ministrante: 'Raissa Cintra',
-    tema: 'Corpo e Movimento',
+    tema: 'Corpo e Movimento.',
     categoria: 'Psicomotricidade & Movimento',
   },
   {
@@ -142,37 +142,37 @@ export const OFICINAS_DATA = [
   {
     id: 'rose-brito',
     ministrante: 'Rose Brito',
-    tema: 'Entre Cantos, Contos e Batucadas',
+    tema: 'Entre Cantos, Contos e Batucadas.',
     categoria: 'Musicalidade & Contos',
   },
   {
     id: 'ivani-magalhaes',
     ministrante: 'Ivani Magalhães',
-    tema: 'Rodas e brincadeiras cantadas',
+    tema: 'Rodas e brincadeiras cantadas.',
     categoria: 'Música & Tradição Popular',
   },
   {
     id: 'marcia-polacchini',
     ministrante: 'Márcia Polacchini',
-    tema: 'Jogos Teatrais',
+    tema: 'Jogos Teatrais.',
     categoria: 'Teatro & Expressão Artística',
   },
   {
     id: 'leticia-oliveira',
     ministrante: 'Leticia de Almeida Oliveira',
-    tema: 'Alimentação segura e pedagógica na escola: manejo clínico e comportamental (0 a 4 anos)',
+    tema: 'Alimentação segura e pedagógica na escola: manejo clínico e comportamental (0 a 4 anos).',
     categoria: 'Nutrição & Manejo Clínico',
   },
   {
     id: 'juliana-leticia',
     ministrante: 'Juliana Neves\n& Leticia Alves',
-    tema: 'Escuta Ativa: A Fonoaudiologia no Cotidiano da Pedagogia da Infância',
+    tema: 'Escuta Ativa: A Fonoaudiologia no Cotidiano da Pedagogia da Infância.',
     categoria: 'Fonoaudiologia & Escuta Ativa',
   },
   {
     id: 'shirley-silva',
     ministrante: 'Shirley da Silva',
-    tema: 'Motricidade Livre',
+    tema: 'Motricidade Livre.',
     categoria: 'Desenvolvimento Motor & Psicomotricidade',
   },
 ];
