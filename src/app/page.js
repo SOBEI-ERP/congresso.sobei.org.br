@@ -269,7 +269,7 @@ export default function Home() {
                       <strong>11/Set (Sexta-feira):</strong> 18h00 às 21h30
                     </p>
                     <p className="info-card__schedule-item">
-                      <strong>12/Set (Sábado):</strong> 08h00 às 17h00
+                      <strong>12/Set (Sábado):</strong> 07h30 às 17h00
                     </p>
                   </div>
 
@@ -427,7 +427,7 @@ export default function Home() {
             <div className="reception-block">
               <h2 className="reception-title">CREDENCIAMENTO &amp; RECEPÇÃO</h2>
               <p className="reception-time">
-                <strong>Horário:</strong> 07h00 às 08h00
+                <strong>Horário:</strong> 07h30 às 08h00
               </p>
               <p className="reception-instructions">
                 <strong>Instruções:</strong> Validação da inscrição e acolhimento dos participantes.

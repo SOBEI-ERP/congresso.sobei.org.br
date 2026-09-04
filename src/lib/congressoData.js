@@ -169,4 +169,10 @@ export const OFICINAS_DATA = [
     tema: 'Escuta Ativa: A Fonoaudiologia no Cotidiano da Pedagogia da Infância',
     categoria: 'Fonoaudiologia & Escuta Ativa',
   },
+  {
+    id: 'shirley-silva',
+    ministrante: 'Shirley da Silva',
+    tema: 'Motricidade Livre',
+    categoria: 'Desenvolvimento Motor & Psicomotricidade',
+  },
 ];
