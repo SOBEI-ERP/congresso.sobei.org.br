@@ -342,15 +342,14 @@
   color: #6b7280;
 }
 
-.custom-select-trigger:hover {
+.custom-select-trigger:hover,
+.custom-select-trigger--open,
+.custom-select-trigger:focus,
+.custom-select-trigger:focus-visible {
   border-color: #0A193F;
   background-color: #ffffff;
-}
-
-.custom-select-trigger--open {
-  border-color: #0A193F;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3.5px rgba(10, 25, 63, 0.12);
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .custom-select-icon {

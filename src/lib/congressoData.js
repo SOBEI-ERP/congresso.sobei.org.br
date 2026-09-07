@@ -24,7 +24,7 @@ export const PALESTRAS_SABADO = [
   },
   {
     id: 'fabiola-dobrillovich',
-    horario: '10h00',
+    horario: '10h30',
     dia: 'Sábado | 12 de Setembro',
     nome: 'Fabíola Dobrillovich',
     tema: 'Primeiros sinais, novos olhares. Os caminhos para uma educação inclusiva.',

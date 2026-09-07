@@ -6,7 +6,7 @@ export default function WorkshopsCatalog() {
     <div className="workshops-list-container">
       {/* Banner de Horário das Oficinas */}
       <div className="workshops-time-banner">
-        Todas as Oficinas acontecerão entre 14h e 17h30
+        Todas as Oficinas acontecerão entre 14h e 17h00
       </div>
 
       {/* Lista de Linhas em Pílulas */}
