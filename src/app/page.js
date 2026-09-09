@@ -435,9 +435,9 @@ export default function Home() {
             </div>
 
             <div className="reception-block">
-              <h2 className="reception-title">ALMOÇO</h2>
+              <h2 className="reception-title">ALMOÇO/INTERVALO</h2>
               <p className="reception-time">
-                <strong>Horário:</strong> 12h00 às 14h00
+                <strong>Horário:</strong> 12h00 às 13h50
               </p>
             </div>
           </div>
