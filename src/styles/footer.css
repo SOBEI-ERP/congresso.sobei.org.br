@@ -3,18 +3,22 @@
    ============================================ */
 
 .footer {
-  background-color: #000000;
+  background-color: #121215;
   color: var(--color-gray-300);
-  padding: var(--spacing-3xl) 0 var(--spacing-xl) 0;
+  padding: var(--spacing-4xl) 0 var(--spacing-2xl) 0;
   margin-top: auto;
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .footer__container {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: var(--spacing-3xl);
-  margin-bottom: var(--spacing-3xl);
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-4xl);
   justify-content: space-between;
 }
 
@@ -116,14 +120,20 @@
 }
 
 .footer__bottom {
-  border-top: 1px solid #1a1a1a;
-  padding-top: var(--spacing-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--spacing-2xl);
   text-align: center;
   font-size: var(--font-size-xs);
   color: var(--color-gray-500);
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-3xl) 0 var(--spacing-xl) 0;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
   .footer__container {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
