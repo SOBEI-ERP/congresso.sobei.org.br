@@ -4,21 +4,18 @@ import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-inter",
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
   display: "swap",
   variable: "--font-serif",
 });
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
   display: "swap",
   variable: "--font-script",
 });
@@ -32,7 +29,6 @@ const anton = Anton({
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-montserrat",
 });

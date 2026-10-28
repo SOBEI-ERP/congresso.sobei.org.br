@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PALESTRAS_SEXTA, PALESTRAS_SABADO } from '@/lib/congressoData';
 import WorkshopsCatalog from '@/components/WorkshopsCatalog';
 
@@ -41,9 +42,14 @@ export default function Home() {
 
       {/* Background SOBEI Watermark Logo with High Transparency */}
       <div className="sobei-watermark" aria-hidden="true">
-        <img
+        <Image
           src="/images/LOGO TRIANGULO TRANSPARENTE.png"
           alt=""
+          width={480}
+          height={480}
+          sizes="(max-width: 640px) 340px, 480px"
+          priority
+          fetchPriority="high"
           className="sobei-watermark-img"
         />
       </div>
@@ -385,9 +391,14 @@ export default function Home() {
             {PALESTRAS_SEXTA.map((palestra) => (
               <div key={palestra.id} className="speaker-item">
                 <div className={`speaker-avatar-frame ${palestra.shapeClass}`}>
-                  <img
+                  <Image
                     src={palestra.foto}
                     alt={palestra.fotoAlt}
+                    width={145}
+                    height={145}
+                    sizes="(max-width: 768px) 115px, 145px"
+                    quality={75}
+                    loading="lazy"
                     className="speaker-avatar-img"
                   />
                 </div>
@@ -485,9 +496,14 @@ export default function Home() {
             {PALESTRAS_SABADO.map((palestra) => (
               <div key={palestra.id} className="speaker-item">
                 <div className={`speaker-avatar-frame ${palestra.shapeClass}`}>
-                  <img
+                  <Image
                     src={palestra.foto}
                     alt={palestra.fotoAlt}
+                    width={145}
+                    height={145}
+                    sizes="(max-width: 768px) 115px, 145px"
+                    quality={75}
+                    loading="lazy"
                     className="speaker-avatar-img"
                   />
                 </div>

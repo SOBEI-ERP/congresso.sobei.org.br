@@ -804,6 +804,8 @@
   padding: clamp(2rem, 4vh, 2.8rem) clamp(1.5rem, 3.5vw, 2.8rem);
   box-shadow: none;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .day-badge {
@@ -811,7 +813,7 @@
   top: 0;
   right: clamp(1.5rem, 3vw, 2.8rem);
   background: #BA8728;
-  color: var(--color-white);
+  color: #0A193F;
   font-family: var(--font-family);
   font-size: clamp(0.76rem, 1vw, 0.9rem);
   font-weight: 900;
