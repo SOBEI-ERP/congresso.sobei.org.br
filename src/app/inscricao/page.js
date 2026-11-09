@@ -542,6 +542,7 @@ export default function InscricaoPage() {
                     type="text"
                     className="inscricao-input"
                     placeholder="Digite seu nome completo"
+                    maxLength={255}
                     value={nomeCompleto}
                     onChange={(e) => setNomeCompleto(e.target.value)}
                     disabled={loading}
@@ -634,6 +635,7 @@ export default function InscricaoPage() {
                         type="text"
                         className="inscricao-input"
                         placeholder="Digite o nome da organização"
+                        maxLength={255}
                         value={outraOsc}
                         onChange={(e) => setOutraOsc(e.target.value)}
                         disabled={loading}
